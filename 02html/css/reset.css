@@ -20,7 +20,7 @@ body,textarea,input,button,select,keygen,legend{font:12px/1.14 arial,'Microsoft 
 body{background:#fff;}
 a{color:#333;}
 a:hover {
-	color:#af0707;
+	/*color:#af0707;*/
 	text-decoration: underline;
 }
 .clearfix::after{display:block;visibility:hidden;clear:both;overflow:hidden;height:0;content:' ';}
