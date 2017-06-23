@@ -1,0 +1,138 @@
+@import './common/index.styl'
+body
+	width 1080px
+	background #fff
+#app
+	position: fixed
+	top 0
+	bottom 0
+	left 0
+	right 0
+	width 1080px
+	background #fff
+	.g-hd
+		width 1080px
+		height 195px
+		border-1px(#ddd)
+		background url('./imgs/logo.png') left 0.3704rem center no-repeat
+		background-size 3.8241rem 1.2407rem
+	.live-wrap
+		width 1080px
+		height 460px
+		display flex
+		-webkit-box-sizing border-box
+		-moz-box-sizing border-box
+		-o-box-sizing border-box
+		box-sizing border-box
+		overflow hidden
+		.live-img
+			position: relative
+			display inline-block
+			width 350px
+			height 350px
+			border-radius 50%
+			margin-left 120px
+			margin-top 48px
+			font-size 0			
+			.img
+				width 100%
+				height 100%
+			.play-btn
+				position: absolute
+				top 50%
+				left 50%
+				transform translate(-50%,-50%)
+				display inline-block
+				width 120px
+				height 120px
+				background url('./imgs/play.png') center center no-repeat
+				background-size cover
+		.live-info
+			display inline-block
+			flex 1
+			height 350px
+			margin-left 75px
+			margin-top 48px
+			.live-title
+				display block
+				margin-top 50px
+				font-size 50px
+				color #444
+				font-weight 500
+			.live-anchor
+				display block
+				margin-top 50px
+				font-size 40px
+				color #999
+				font-size 500
+	.loadapp-btn
+		width 1000px
+		height 104px
+		line-height 104px
+		text-align center
+		margin 0 auto
+		font-size 50px
+		color #fff
+		border-radius 20px
+		background #1ba2ff
+		&:active
+			background #0b8de7
+		a
+			color #fff
+			&:hover
+				color #fff
+				text-decoration: none
+	.live-list
+		margin-top 100px
+		width 1080px
+		.list-title			
+			padding-left 40px
+			padding-bottom 40px
+			border-1px(#ccc)
+			color #444
+			font-size 40px
+			font-weight 700
+		.list-wrap
+			position: absolute
+			left 0
+			right 0
+			top 950px
+			bottom 0
+			width 1080px
+			background #fff
+			overflow auto
+			-webkit-overflow-scrolling: touch
+			.list-item
+				display flex
+				justify-content center
+				align-items center
+				width 1080px
+				height 140px
+				line-height 140px
+				padding 0 40px
+				-webkit-box-sizing border-box
+				box-sizing border-box
+				border-1px(#ccc)
+				.item-time
+					width 310px
+					font-size 40px
+					font-weight 500
+				.item-name
+					flex 1
+					font-size 50px
+					font-weight 500
+					overflow hidden
+					white-space nowrap
+					text-overflow ellipsis
+				.item-play
+					display inline-block
+					width 70px
+					height 70px
+					line-height 70px
+					font-size 70px
+				&.active
+					color #1ba2ff
+					.icon-ddd
+						color #1ba2ff
+				
+			
