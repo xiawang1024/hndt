@@ -96,7 +96,7 @@ export default {
     }
   },
   created() {
-    this.cid = localStorage.getItem('hr_cid') || 1;
+    
     getClassItem(1).then((res) => {
       let data = res.data;
       this.classOneItem = data;
@@ -112,11 +112,13 @@ export default {
     
   },
   mounted() {
+    this.cid = localStorage.getItem('hr_cid') || 1;
     if(localStorage.getItem('hr_cid')){
       return 
     }else{
       getChannelItem(this.cid).then((res) => {
         let data = res.data;
+        localStorage.setItem('hr_cid',this.cid);
         this.$store.dispatch('getItemInfo', data)
       })
     }    
