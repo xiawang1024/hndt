@@ -3,16 +3,20 @@
     <div class="g-hd"></div>
     <div class="live-wrap">
       <div class="live-img">
-        <img class="img" src="http://program.hndt.com/files/images/2017/06/23/1498188224840943.png">
-        <span class="play-btn"></span>
+        <img class="img" :class="isPlay ? 'isRotate' : '' " :src="'http://program.hndt.com' + logoSrc">
+        <span class="play-btn" @click="playOrPause">
+          <i v-if="isPlay" class="icon-play"></i>
+          <i v-else class="icon-pause"></i>
+        </span>
       </div>
       <div class="live-info">
         <span class="live-title">{{titleSrc}}</span>
-        <span class="live-anchor">主播：徐燕</span>
+        <span class="live-title">{{timeSrc}}</span>
+        <!-- <span class="live-anchor">主播：徐燕</span> -->
       </div>
     </div>
     <div class="loadapp-btn">
-      <a href="###">下载河南广播APP</a>
+      <a href="http://www.hndt.com/app/download/index.html" target="_bank">下载河南广播APP</a>
     </div>
     <div class="live-list">
       <div class="list-title">节目列表</div>
@@ -31,7 +35,7 @@
     </div>
     <div class="audio" style="position: absolute;z-index: -100">
         <audio width="640" height="320" controls autoplay id="audio">
-            <source src="http://stream.hndt.com:1935/live/xinwen/playlist.m3u8" type="application/x-mpegURL">
+            <source :src="audioSrc" type="application/x-mpegURL">
        </audio>
     </div>
   </div>
@@ -46,14 +50,24 @@ export default {
         itemList:[],
         audioSrc:'',
         titleSrc:'',
+        logoSrc:'',
+        timeSrc:'',
         top:0,
-        indexId:0
+        indexId:0, //节目索引
+        isPlay: true
     }
   },
   created() {
-    getChannelItem(1).then((res) => {
+    let query = this.$route.query
+    let cid = query.id;
+    // console.log(cid)
+    var audioBtn = document.querySelector('#audio');
+    getChannelItem(cid).then((res) => {
         let data = res.data;
+        this.audioSrc = data.streams[0];
         this.itemList = data.programs;
+        this.logoSrc = data.image;
+        this.timeSrc = data.time;
         this.$nextTick(() => {
             setTimeout(() => {
                 this.isActive();
@@ -77,7 +91,7 @@ export default {
         let len = data.length;
         var index=0;
         var fontSize = $('html').css('font-size');
-        console.log(fontSize)
+        // console.log(fontSize)
         var height = 1.296 * parseInt(fontSize);
         for(let i =0 ;i < len ; i++){
             let item = data[i];
@@ -92,7 +106,17 @@ export default {
     },
     scroll(ev){
         // console.log(ev)
-    }
+    },
+    playOrPause() {
+      var audioBtn = document.querySelector('#audio');
+      if(this.isPlay){
+        this.isPlay = false;
+        audioBtn.pause();
+      }else{
+        this.isPlay = true;
+        audioBtn.play();
+      }
+    },
   }
 }
 </script>
