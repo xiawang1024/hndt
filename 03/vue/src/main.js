@@ -11,8 +11,17 @@ const routes = [
 	
 ]
 const router = new VueRouter({
-  routes
+	mode: 'history',
+    routes
 })
+//消除300ms延迟
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+//active点击效果
+document.body.addEventListener('touchstart', function () { })
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

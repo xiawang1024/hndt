@@ -35,7 +35,7 @@
     </div>
     <div class="audio" style="position: absolute;z-index: -100">
         <audio width="640" height="320" controls autoplay id="audio">
-            <source :src="audioSrc" type="application/x-mpegURL">
+            <source type="application/x-mpegURL">
        </audio>
     </div>
   </div>
@@ -68,12 +68,27 @@ export default {
         this.itemList = data.programs;
         this.logoSrc = data.image;
         this.timeSrc = data.time;
+        $('#audio').attr("src",this.audioSrc)
         this.$nextTick(() => {
             setTimeout(() => {
                 this.isActive();
                 $('.list-wrap').scrollTop(this.top)
             },0)
         })
+        wx.config({
+              // 配置信息
+          debug: false,
+          appId: '',
+          timestamp: 1,
+          nonceStr: '',
+          signature: '',
+          jsApiList: []
+        });
+        wx.ready(() => {
+            // audioBtn.src = this.audioSrc
+            $('#audio').attr("src",this.audioSrc)
+            audioBtn.play();
+        });
     })
   },
   mounted() {
@@ -82,6 +97,7 @@ export default {
     oHtml.addEventListener('touchstart',function(){
         audio.play()
     })
+
   },
   methods:{
     isActive(){
