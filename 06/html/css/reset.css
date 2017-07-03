@@ -21,6 +21,9 @@ body{background:#fff;}
 a{color:#333;}
 a:hover {
 	/*color:#af0707;*/
+	/*text-decoration: underline;*/
+}
+ul li a:hover{
 	text-decoration: underline;
 }
 .clearfix::after{display:block;visibility:hidden;clear:both;overflow:hidden;height:0;content:' ';}
