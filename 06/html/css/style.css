@@ -260,6 +260,7 @@
   color: #06a7e1;
 }
 .g-body .bd-left .filmreview .reviewwrap .item-right .item .txtwrap .rating {
+  height: 95px;
   margin-top: 8px;
   line-height: 1.8;
   font-size: 14px;
