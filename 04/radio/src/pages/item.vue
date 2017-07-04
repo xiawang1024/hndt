@@ -28,9 +28,9 @@
             <div class="list-item" v-for="(item, index) of itemList" ref="listWrap" :class="{'active' : index == indexId ? true : false}">
               <span class="item-time">{{item.beginTime | formdata}}-{{item.endTime | formdata}}</span>
               <span class="item-name">{{item.title}}</span>
-              <span class="item-play">
-                <i v-if="index == indexId" class="icon-voice"></i>
-              </span>
+              <!-- <span class="item-play"> -->
+                <i v-if="index == indexId" class=" icon-voice"></i>
+              <!-- </span> -->
             </div>
         </div>
       </div>
@@ -59,30 +59,43 @@ export default {
         timeSrc:'',
         top:0,
         indexId:0, //节目索引
-        isPlay: true
+        isPlay: true,
+        isReLoad:null //是否重新加载
     }
   },
-  mounted() {
+  created() {
     let query = this.$route.query
     let cid = query.cid;
     var audioBtn = document.querySelector('#audio');
-    // console.log(audioBtn.paused)
     getChannelItem(cid).then((res) => {
         let data = res.data;
         this.itemList = data.programs;
         this.logoSrc = data.image;
-        this.timeSrc = data.time;
-        if(audioBtn.paused){
+        this.timeSrc = data.time;        
+        this.isActive();   
+        this.$nextTick(() => { 
+          $('.list-wrap').scrollTop(this.top)  
+        })
+        if(this.isReLoad){
           this.$store.dispatch('getItemInfo', data)
         }else{
           return 
-        }        
-        this.$nextTick(() => {
-            setTimeout(() => {
-                this.isActive();
-                $('.list-wrap').scrollTop(this.top)
-            },0)
-        })
+        }     
+    })
+  },
+  mounted() {
+    $('html').one('touchstart',function(){
+      document.querySelector('#audio').play();
+    })
+  },
+  //判断是否是重新加载
+  beforeRouteEnter(to, from, next){
+    next(vm => {
+      if(from.name == null){
+        vm.isReLoad = true
+      }else{
+        vm.isReLoad = false
+      }
     })
   },
   methods:{
@@ -128,4 +141,6 @@ export default {
 <style scoped lang="stylus">
 @import "../common/index.styl"
 @import "../player.styl"
+.icon-voice
+  font-size 60px
 </style>

@@ -120,8 +120,14 @@ export default {
         let data = res.data;
         localStorage.setItem('hr_cid',this.cid);
         this.$store.dispatch('getItemInfo', data)
+        this.$nextTick(() => {
+          $('html').one('touchstart',function(){
+            document.querySelector('#audio').play();
+          }) 
+        })
       })
-    }    
+    }
+
   },
   computed: {
     swiper() {
@@ -173,10 +179,10 @@ export default {
     font-size 80px
   .voice
     position: absolute
-    right 50px
+    right 0px
     top 35px
-    width 80px
-    height 70px
+    width 150px
+    height 80px
 #home
 	.g-hd
 		width 1080px

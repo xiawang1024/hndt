@@ -18,11 +18,11 @@ export default {
 
   	},
   	mounted() {
-  		let oHtml = document.querySelector('html');
-	    let audio = document.querySelector('#audio');
-	    oHtml.addEventListener('touchstart',function(){
-	        audio.play()
-	    })
+  		// let oHtml = document.querySelector('html');
+	   //  let audio = document.querySelector('#audio');
+	   //  oHtml.addEventListener('touchstart',function(){
+	   //      audio.play()
+	   //  })
   	},
   	computed:{
   		audioSrc() {
