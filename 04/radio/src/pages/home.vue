@@ -170,6 +170,10 @@ export default {
 #home
   .g-hd
     position: relative
+  .tabWrap
+    margin 0 auto
+  .tabContent
+    margin 0 auto
   .icon-back
     position: absolute
     display inline-block
@@ -185,12 +189,12 @@ export default {
     height 80px
 #home
 	.g-hd
-		width 1080px
+		width 100%
 		height 150px
 		border-1px(#ddd)
 		background url('../imgs/logo.png') center center no-repeat
 		background-size auto 0.85rem
-		background-color #fff  
+		background-color #fff    
 	.tabWrap
 		display flex
 		width 1080px
