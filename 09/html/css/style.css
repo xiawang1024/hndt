@@ -1,0 +1,160 @@
+body {
+  background: #fff;
+}
+.g-hd {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+}
+.g-hd ul {
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 0;
+}
+.g-hd ul .list {
+  display: inline-block;
+  width: 90px;
+  line-height: 40px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-hd ul .list a {
+  vertical-align: middle;
+  display: inline-block;
+  width: 100%;
+  height: 14px;
+  line-height: 14px;
+  border-right: 1px solid #adadad;
+  font-size: 14px;
+  color: #666;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-hd ul .list:last-child a {
+  border-right: none;
+}
+.g-logo-wrap {
+  width: 1000px;
+  height: 112px;
+  margin: 0 auto;
+}
+.g-logo-wrap .logo-img {
+  float: left;
+  height: 100%;
+  font-size: 0;
+}
+.g-logo-wrap .logo-img .logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+.g-logo-wrap .logo-img span {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.g-logo-wrap .live-info {
+  float: right;
+  height: 100%;
+  line-height: 112px;
+}
+.g-logo-wrap .live-info .play-pause {
+  vertical-align: middle;
+  display: inline-block;
+  width: 54px;
+  height: 54px;
+  background: url("../imgs/play.png") center center no-repeat;
+  background-size: cover;
+}
+.g-logo-wrap .live-info .live-name {
+  margin-left: 10px;
+  font-size: 16px;
+  color: #0081dc;
+}
+.g-tab {
+  width: 100%;
+  height: 50px;
+  background: #0081dc;
+}
+.g-tab .tab-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  line-height: 50px;
+  font-size: 0;
+}
+.g-tab .tab-wrap .tab {
+  display: inline-block;
+  width: 142px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 18px;
+}
+.g-tab .tab-wrap .tab a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+.g-bd {
+  width: 1000px;
+  margin: 40px auto 0;
+}
+.g-bd .main {
+  width: 650px;
+  overflow: hidden;
+}
+.g-bd .main .slider-wrap {
+  width: 650px;
+  height: 366px;
+  overflow: hidden;
+}
+.g-bd .main .slider-wrap .swiper-slide {
+  position: relative;
+}
+.g-bd .main .slider-wrap .swiper-slide .img-wrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.g-bd .main .slider-wrap .swiper-slide .img-wrap img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.g-bd .main .slider-wrap .swiper-slide .text-wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  margin: 0 auto;
+  width: 580px;
+  height: 80px;
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.4);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .main .slider-wrap .swiper-slide .text-wrap .title {
+  width: 80%;
+  line-height: 1.7;
+  font-size: 18px;
+  color: #fff;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.g-bd .main .slider-wrap .swiper-slide .text-wrap .desc {
+  line-height: 1.7;
+  font-size: 16px;
+  color: #e7e7e7;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
