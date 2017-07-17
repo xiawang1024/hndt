@@ -81,6 +81,10 @@ body {
   background-size: cover;
   cursor: pointer;
 }
+.g-logo-wrap .live-info .play-pause.paused {
+  background: url("../imgs/pause.png") center center no-repeat;
+  background-size: cover;
+}
 .g-logo-wrap .live-info .live-name {
   margin-left: 10px;
   font-size: 16px;
