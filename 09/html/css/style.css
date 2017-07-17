@@ -35,6 +35,10 @@ body {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
+.g-hd ul .list a:hover {
+  color: #0081dc;
+  text-decoration: underline;
+}
 .g-hd ul .list:last-child a {
   border-right: none;
 }
@@ -43,19 +47,25 @@ body {
   height: 112px;
   margin: 0 auto;
 }
-.g-logo-wrap .logo-img {
+.g-logo-wrap .logo-img,
+.g-logo-wrap .channel-logo {
   float: left;
   height: 100%;
   font-size: 0;
 }
-.g-logo-wrap .logo-img .logo {
+.g-logo-wrap .logo-img .logo,
+.g-logo-wrap .channel-logo .logo {
   display: inline-block;
   vertical-align: middle;
 }
-.g-logo-wrap .logo-img span {
+.g-logo-wrap .logo-img span,
+.g-logo-wrap .channel-logo span {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+}
+.g-logo-wrap .channel-logo {
+  margin-left: 35px;
 }
 .g-logo-wrap .live-info {
   float: right;
@@ -69,6 +79,7 @@ body {
   height: 54px;
   background: url("../imgs/play.png") center center no-repeat;
   background-size: cover;
+  cursor: pointer;
 }
 .g-logo-wrap .live-info .live-name {
   margin-left: 10px;
@@ -106,6 +117,7 @@ body {
   margin: 40px auto 0;
 }
 .g-bd .main {
+  float: left;
   width: 650px;
   overflow: hidden;
 }
@@ -157,4 +169,319 @@ body {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+.g-bd .main .dynamic {
+  margin-top: 40px;
+}
+.g-bd .main .dynamic .icon {
+  font-size: 0;
+}
+.g-bd .main .dynamic .pics-list {
+  margin-top: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #ccc;
+}
+.g-bd .main .dynamic .pics-list .item {
+  float: left;
+  width: 190px;
+  font-size: 0;
+  margin-left: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.g-bd .main .dynamic .pics-list .item:first-child {
+  margin-left: 0;
+}
+.g-bd .main .dynamic .pics-list .item .img {
+  width: 100%;
+}
+.g-bd .main .dynamic .pics-list .item .text {
+  display: inline-block;
+  width: 100%;
+  font-size: 14px;
+  line-height: 2.14;
+  color: #666;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.g-bd .main .dynamic .text-list {
+  padding-top: 30px;
+}
+.g-bd .main .dynamic .text-list .item {
+  float: left;
+  width: 320px;
+  margin-left: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .main .dynamic .text-list .item:first-child {
+  margin-left: 0;
+}
+.g-bd .main .dynamic .text-list .item .list {
+  width: 100%;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.g-bd .main .dynamic .text-list .item .list .dot {
+  vertical-align: middle;
+  display: inline-block;
+  margin-right: 10px;
+  width: 2px;
+  height: 2px;
+  background: #0081dc;
+}
+.g-bd .main .dynamic .text-list .item .list a {
+  font-size: 16px;
+  color: #666;
+  line-height: 2.25;
+}
+.g-bd .main .dynamic .text-list .item .list a:hover {
+  color: #0081dc;
+  text-decoration: underline;
+}
+.g-bd .main .radio-host {
+  margin-top: 30px;
+  width: 650px;
+  overflow: hidden;
+}
+.g-bd .main .radio-host .icon {
+  font-size: 0;
+}
+.g-bd .main .radio-host .host-slider {
+  width: 100%;
+  margin-top: 40px;
+}
+.g-bd .main .radio-host .host-slider .swiper-host {
+  position: relative;
+  width: 600px;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .swiper-wrapper {
+  width: 100%;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .swiper-slide {
+  width: 180px;
+  height: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .swiper-slide .img {
+  display: block;
+  width: 180px;
+  height: 240px;
+  border: 1px solid #8a9797;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .swiper-slide .name {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.333;
+  margin-top: 16px;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-prev,
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-next {
+  position: absolute;
+  z-index: 10;
+  top: 106px;
+  width: 24px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  background: #5c5c5c;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-prev:hover,
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-next:hover {
+  background: #339ae3;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-prev {
+  left: -25px;
+}
+.g-bd .main .radio-host .host-slider .swiper-host .host-button-next {
+  right: -25px;
+}
+.g-bd .mainc {
+  float: right;
+  width: 310px;
+  overflow: hidden;
+}
+.g-bd .mainc .program {
+  width: 310px;
+}
+.g-bd .mainc .program .program-list {
+  width: 100%;
+  height: 366px;
+  background: url("../imgs/program.png") center center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.g-bd .mainc .program .program-list .list-wrap {
+  width: 308px;
+  height: 287px;
+  margin-top: 78px;
+  margin-left: 1px;
+  overflow: hidden;
+}
+.g-bd .mainc .program .program-list .list-wrap .list {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 0;
+  border-bottom: 1px solid #ebebec;
+}
+.g-bd .mainc .program .program-list .list-wrap .list:hover {
+  background: rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+.g-bd .mainc .program .program-list .list-wrap .list .time,
+.g-bd .mainc .program .program-list .list-wrap .list .name {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  color: #666;
+}
+.g-bd .mainc .featured {
+  margin-top: 40px;
+}
+.g-bd .mainc .featured .icon {
+  font-size: 0;
+}
+.g-bd .mainc .featured .featured-wrap {
+  margin-top: 35px;
+}
+.g-bd .mainc .featured .featured-wrap .row {
+  width: 100%;
+  margin-bottom: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .mainc .featured .featured-wrap .row .item {
+  position: relative;
+  float: left;
+  width: 150px;
+  height: 48px;
+  line-height: 3;
+  vertical-align: 2px;
+  text-align: center;
+  box-shadow: inset 0 0 0 3px #ebebec;
+  font-size: 16px;
+  color: #333;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.g-bd .mainc .featured .featured-wrap .row .item::before,
+.g-bd .mainc .featured .featured-wrap .row .item::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-bd .mainc .featured .featured-wrap .row .item:first-child {
+  margin-right: 10px;
+}
+.g-bd .mainc .featured .featured-wrap .row .item:hover a {
+  color: #0081dc;
+}
+.g-bd .mainc .featured .featured-wrap .row .item a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.g-bd .mainc .featured .featured-wrap .row.middle .item {
+  width: 98px;
+  margin-right: 8px;
+}
+.g-bd .mainc .featured .featured-wrap .row.middle .item:last-child {
+  margin-right: 0;
+}
+.g-bd .mainc .weibo {
+  margin-top: 40px;
+}
+.g-bd .mainc .weibo .info .avatar {
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  font-size: 0;
+  margin-right: 20px;
+}
+.g-bd .mainc .weibo .info .avatar .img {
+  width: 100%;
+  height: 100%;
+}
+.g-bd .mainc .weibo .info .text {
+  float: left;
+  width: 170px;
+}
+.g-bd .mainc .weibo .info .text .title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+.g-bd .mainc .weibo .info .follow {
+  float: right;
+  margin-top: 20px;
+}
+.g-bd .mainc .weibo .live {
+  margin-top: 20px;
+}
+.g-ft {
+  width: 100%;
+  margin-top: 30px;
+  padding: 40px 0;
+  border-top: 2px solid #dedede;
+}
+.g-ft .ft-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.g-ft .ft-wrap .row {
+  line-height: 2.2;
+  font-size: 12px;
+  color: #333;
+}
+.g-ft .ft-wrap .row.beian-wrap {
+  margin-top: 20px;
+}
+.g-ft .ft-wrap .row.beian-wrap .beian {
+  display: inline-block;
+  vertical-align: middle;
+}
+.g-ft .ft-wrap .row.beian-wrap .txt {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  vertical-align: middle;
 }
