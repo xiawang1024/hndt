@@ -68,7 +68,7 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
 .scroll-wrap
-  // position: absolute
+  position: absolute
   top 0
   bottom 0
   width 750px

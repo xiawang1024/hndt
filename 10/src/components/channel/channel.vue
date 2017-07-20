@@ -1,17 +1,31 @@
 <template>
 	<div class="channel">
 		<div class="logo-wrap">
+			
+			<div class="wave" @click="goToItems(isPlayIndex)">
+				<wave></wave>
+			</div>
 			<img src="./logo.png" alt="" class="img">
+			<load class="load"></load>			
 		</div>
 		<tab-slider 
-		class="tab-slider-wrap" 
-		v-if="itemsData.length>0"
-		ref="tabslider"
-		:data="itemsData"
+			class="tab-slider-wrap" 
+			v-if="itemsData.length>0"
+			ref="tabslider"
+			:data="itemsData"
 		>			
-			<scroll v-for="(group,index) in itemsData" :data="itemsData" :key="index">
+			<scroll 
+				v-for="(group,index) in itemsData" 
+				:data="itemsData" 
+				:key="index"
+			>
 				<div class="scroll">										
-					<div v-for="item in group" class="items" @click="goToItems(item.cid)">
+					<div 
+						v-for="item in group" 
+						class="items" 
+						@click="goToItems(item.cid,item.streams[0])"
+						:class="item.cid == isPlayIndex ? 'isLivePlay' : ''"
+					>
 						<div class="icon item">
 							<img :src="'http://program.hndt.com' + item.image" class="img">
 						</div>
@@ -20,14 +34,15 @@
 								{{item.name}}
 							</p>
 							<p class="live-name">
-								{{item.live}}
+								<i class="icon-LIVE" v-if="item.live"></i>{{item.live}}
 							</p>
 							<p class="live-time">
 								{{item.time}}
 							</p>
 						</div>
 						<div class="play-pause-btn item">
-							<i class="icon-ddd"></i>
+							<i class="icon-blue" v-if="item.cid == isPlayIndex"></i>
+							<i class="icon-ddd" v-else></i>
 						</div>
 					</div>								
 				</div>
@@ -39,6 +54,8 @@
 <script>
 import TabSlider from '@/base/tabSlider'
 import Scroll from '@/base/scroll'
+import Wave from '@/base/wave'
+import Load from '@/components/load/load'
 import {getClassItem} from "api/index"
 import BScroll from 'better-scroll'
 
@@ -47,15 +64,16 @@ export default {
 	name:'channel',
 	components:{
 		TabSlider,
-		Scroll
+		Scroll,
+		Wave,
+		Load
 	},
 	data() {
 		return {
-			itemsData:[]
+			itemsData:[],
+			stream:null,
+			isPlayIndex:null
 		}
-	},
-	computed:{
-		
 	},
 	mounted(){
 		setTimeout(() => {
@@ -69,8 +87,14 @@ export default {
 		},5000)
 	},
 	created() {
-		this.itemsData = new Array(3)
-		this._getClassItem();		
+		this._getClassItem();
+		this._parseQuery()
+		this.itemsData = new Array(3)		
+	},
+	mounted() {
+		if(!document.getElementById('audio').getAttribute('src')){
+			document.getElementById('audio').setAttribute('src','http://stream.hndt.com:1935/live/xinwen/playlist.m3u8')
+		}	
 	},
 	methods:{
 		_getClassItem() {
@@ -83,8 +107,30 @@ export default {
 				this.itemsData = res
 			})
 		},
-		goToItems(cid) {
+		goToItems(cid,stream) {
+			if(stream){
+				this.playSrc(cid,stream);
+			}
+			this.setPlayIndex(cid);
 			this.$router.push({ path: '/items', query: { cid: cid }})
+		},
+		playSrc(cid,stream) {
+			let audio = document.getElementById('audio')
+			if(cid != this.isPlayIndex){
+				audio.setAttribute('src',stream)
+			}			
+		},
+		setPlayIndex(index){
+			this.isPlayIndex = index;
+		},
+		_parseQuery() {
+			let query = this.$route.query
+			let isPlayIndex = query.isPlayIndex;
+			if(isPlayIndex){
+				this.isPlayIndex = isPlayIndex
+			}else{
+				this.isPlayIndex = 1
+			}
 		}
 	}
 }
@@ -96,19 +142,28 @@ export default {
 	width 100%
 	background #fff
 	.logo-wrap
+		position: relative
 		width 100%
-		height 100px
-		line-height 100px
+		height $channel-hd-height
+		line-height $channel-hd-height
 		font-size 0
 		text-align center
 		overflow hidden
-		border-1px(#eee)
+		border-1px($color)
 		.img
 			vertical-align middle
-			width 200px
+			width 280px
+		.wave
+			position: absolute
+			left 10px
+			top 0
+		.load
+			position: absolute
+			right 30px
+			top 30px
 	.tab-slider-wrap
 		position: fixed
-		top 100px
+		top $channel-hd-height
 		bottom 0
 		left 0
 		right 0
@@ -117,29 +172,38 @@ export default {
 		background #fff
 		.items
 			display flex
-			height 200px
+			height $channel-item-height
 			align-items center
-			border-1px(#eee)
+			border-1px($color)
 			.item
 				flex 1
 				text-align center
 				&.icon
 					font-size 0
 					.img
-						width 150px
-						height 150px
+						width 180px
+						height 180px
 						border-radius 50%
-						border 2px solid #eee
+						border 2px solid $color
 				&.live-info
-					font-size 28px
+					font-size 34px
+					text-align center
 					.name,.live-name,.live-time
 						line-height 200%
 					.live-name,.live-time
-						font-size 26px
+						font-size 30px
 						color #666
 						no-wrap()
 						max-width 250px
+						.icon-LIVE
+							vertical-align middle
+							font-size 80px
+							color #000
 				&.play-pause-btn
-					font-size 70px
+					font-size 80px
+			&.isLivePlay
+				.icon
+					.img
+						border 2px solid #1ba2ff
 				
 </style>

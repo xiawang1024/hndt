@@ -7,8 +7,8 @@
 		<div class="tab">
 			<div class="item" v-for="(item,index) in tabArr">
 				<span
-				:class="currentPageIndex == index ? 'isCurrent' : '' "
-				@click="goToPage(index)"
+					:class="currentPageIndex == index ? 'isCurrent' : '' "
+					@click="goToPage(index)"
 				>{{item}}</span>
 			</div>
 		</div>
@@ -99,17 +99,17 @@ export default {
 .tab
 	top 0
 	width 100%
-	height 80px
+	height $channel-tab-height
 	display flex
 	align-items center
 	justify-content center
 	background #fff
-	border-1px(#eee)
+	border-1px(#bebebe)
 	position: absolute
 	.item
 		flex 1
 		text-align center
-		font-size 28px
+		font-size 32px
 		.isCurrent
 			padding 10px 20px
 			border-radius 50px
@@ -119,7 +119,7 @@ export default {
 	min-height 1px
 	.slider-group
 		position: relative
-		padding-top 80px 
+		padding-top $channel-tab-height
 		height 100%
 		overflow hidden
 		white-space nowrap
