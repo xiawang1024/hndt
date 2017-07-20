@@ -6,20 +6,20 @@
 				河南广播网
 			</span>
 		</div>
-		<div class="audio-wrap" v-if="itemsInfo">
-			<div class="item-logo">
+		<div class="audio-wrap" >
+			<div class="item-logo" v-if="itemsInfo">
 				<img :src="'http://program.hndt.com' + itemsInfo.image" alt="" class="img">
 				<span class="icon-play"></span>
 			</div>
-			<div class="item-info">
-				<p class="name">{{itemsInfo.name}}</p>
+			<div class="item-info" v-if="itemsInfo">
+				<p class="name" >{{itemsInfo.name}}</p>
 				<p class="live-name">{{itemsInfo.live}}</p>
 				<p class="live-time">{{itemsInfo.time}}</p>
 			</div>
 		</div>
 		<div class="itemsList">
 			<div class="title">节目列表</div>
-			<scroll class="list-wrap" :data="itemsList" ref="listview">
+			<scroll class="list-wrap" :data="itemsList" ref="listview" >
 				<div>
 					<div class="list" v-for='(item, index) in itemsList' ref="list">
 						<span class="item time">{{format(item.beginTime)}} - {{format(item.endTime)}}</span>
@@ -90,7 +90,7 @@ export default {
 		_scrollTo(index){
 			let listHeight = this.$refs.list[0].clientHeight;
 			let offsetY = parseInt(listHeight) * index 
-			this.$refs.listview.scroll.scrollTo(0,-offsetY,1000)
+			this.$refs.listview.scroll && this.$refs.listview.scroll.scrollTo(0,-offsetY,1000)
 		},
 		parseQuery() {
 			let query = this.$route.query
