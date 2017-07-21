@@ -21,6 +21,14 @@
             type:Array,
             default:null
         },
+        scrollX:{
+            type:Boolean,
+            default:false
+        },
+        scrollY:{
+            type:Boolean,
+            default:true
+        }
     },
     mounted() {
         setTimeout(() => {
@@ -43,7 +51,9 @@
             }
             this.scroll = new BScroll(this.$refs.wrapper, {
                 probeType:this.probeType,
-                click:this.click
+                click:this.click,
+                scrollX:this.scrollX,
+                scrollY:this.scrollY
             })
         },
         enable() {
@@ -67,10 +77,5 @@
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
-.scroll-wrap
-  position: absolute
-  top 0
-  bottom 0
-  width 750px
-  overflow hidden
+
 </style>

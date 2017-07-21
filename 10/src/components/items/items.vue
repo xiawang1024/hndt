@@ -30,12 +30,14 @@
 		</div>
 		<div class="itemsList" v-show="itemsList.length">
 			<div class="title">节目列表</div>
-			<div class="list-date" ref="dateList">
-				<div style="width:100000px">
-					<span v-for="n of 100">{{n}}</span>
-				</div>
-			</div>
-			<scroll class="list-wrap" :data="itemsList" ref="listview" >
+			<date-pick
+				@clickItem="getDatePrograms"
+			></date-pick>
+			<scroll 
+				class="list-wrap" 
+				:data="itemsList" 
+				ref="listview" 
+			>
 				<div>
 					<div class="list" v-for='(item, index) in itemsList' ref="list">
 						<span class="item time">{{format(item.beginTime)}} - {{format(item.endTime)}}</span>
@@ -55,15 +57,17 @@
 
 <script>
 import Scroll from '@/base/scroll'
+import DatePick from '@/base/datePick'
 import Load from '@/components/load/load'
-import { getChannelItem } from 'api/index'
+import { getChannelItem, clickItem } from 'api/index'
 import { addClass } from 'common/js/dom.js'
 import BScroll from 'better-scroll'
 export default {
 	name:'items',
 	components:{
 		Scroll,
-		Load
+		Load,
+		DatePick
 	},
 	data() {
 		return {
@@ -71,7 +75,7 @@ export default {
 			itemsList:[],
 			isPlayIndex:null,
 			playStream:'',
-			playOrPause:true
+			playOrPause:true,			
 		}
 	},
 	created() {
@@ -85,21 +89,8 @@ export default {
 			}else{
 				this.playOrPause = true
 			}
-		}
-		setTimeout(() => {
-			this.dateScroll = new BScroll(this.$refs.dateList,{
-				scrollX:true,
-				bounce:true
-			})
-		},20)		
-	},
-	watch:{
-		playStream(oldVal, val) {
-			if(val){
-				// this._playSrc(val)
-			}			
-		}
-	},
+		}		
+	},	
 	methods:{
 		_getChannelItem(cid) {
 			getChannelItem(cid).then((res) => {
@@ -130,6 +121,9 @@ export default {
 			let listHeight = this.$refs.list[0].clientHeight;
 			let offsetY = parseInt(listHeight) * index 
 			this.$refs.listview.scroll && this.$refs.listview.scroll.scrollTo(0,-offsetY,1000)
+		},
+		_scrollTop(){
+			this.$refs.listview.scroll && this.$refs.listview.scroll.scrollTo(0,0,1000)
 		},
 		_playSrc(stream) {
 			this.audio.setAttribute('src',stream)
@@ -169,6 +163,43 @@ export default {
 	        }
 	        return num
 	    },
+	    //点播
+	   	getDatePrograms(date){
+	   		let cid = this.cid;
+	   		let year = (new Date()).getFullYear();
+	   		let month = this._pad(new Date().getMonth() + 1);
+        	let day = this._pad(new Date().getDate())
+	   		let time = year + '-' + date.date + ' 00:00:00.0';
+	   		let stamp = this._timeToStamp(time)
+	   		let nowDate = month +'-'+ day;
+	   		let isScrollTop = true
+	   		if(nowDate == date.date){// 如果点击的是今天，那么跳动到直播
+	   			isScrollTop = false
+	   		}else{
+	   			isScrollTop = true 
+	   		}
+	   		this._getItems(this.cid, stamp, isScrollTop)
+	   	},
+	   	//时间转时间戳
+	    _timeToStamp(date){
+	        // var date = '2015-03-05 00:00:00.0';
+	        date = date.substring(0,19);    
+	        date = date.replace(/-/g,'/'); 
+	        var timestamp = new Date(date).getTime();
+	        return timestamp/1000;
+	    },
+	    _getItems(cid,time,isScrollTop){
+	    	clickItem(cid, time).then((res) => {
+	    		let data = res.data;
+	    		console.log(data)
+	    		this.itemsList = data.programs
+	    		if(isScrollTop){
+	    			this._scrollTop()
+	    		}else{
+	    			this._scrollTo(this.isPlayIndex)
+	    		}
+	    	})
+	    }
 	}
 }
 </script>
@@ -258,25 +289,14 @@ export default {
 			font-weight 700
 			border-1px($color)
 			box-sizing border-box
-		.list-date
-			position: fixed
-			top $items-list-date-top
-			left 0 
-			right 0
-			height $items-date-height
-			line-height $items-date-height
-			background #fff
-			border-bottom 0.5px solid $color
-			box-sizing border-box
-			overflow-y auto
-			span
-				display inline-block
-				width 100px
 		.list-wrap
 			position: fixed
 			top $items-list-wrap-top
 			width 100%
 			background #fff
+			bottom 0
+			width 750px
+			overflow hidden
 			.list 
 				display flex
 				height $items-item-list
