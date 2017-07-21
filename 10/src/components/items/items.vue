@@ -23,16 +23,32 @@
 			<div class="item-info" v-if="itemsInfo">
 				<p class="name">{{itemsInfo.name}}</p>
 				<p class="live-name">
-					<i class="icon-LIVE"></i>{{itemsInfo.live}}
+					<i class="icon-LIVE" v-show="isLivePlay"></i>
+					<span class="playback" v-show="!isLivePlay">回听</span>
+					{{isLivePlay ? itemsInfo.live : playBackTitle}}
 				</p>
-				<p class="live-time">{{itemsInfo.time}}</p>
+				<p class="live-time" v-show="isLivePlay">
+					<span>{{itemsInfo.time}}</span>					
+				</p>
+				<p class="live-time progress-wrap" v-show="!isLivePlay">
+					<span class="time time-l">{{formatPlayTime(currentTime)}}</span>
+					<span class="progress">
+						<progress-bar 
+							:percent="percent" 
+							@percentChange="onProgressBarChange"
+						></progress-bar>
+					</span>
+					<span class="tiem time-r">{{formatPlayTime(duration)}}</span>
+				</p>
 			</div>
 		</div>
 		<div class="itemsList" v-show="itemsList.length">
 			<div class="title">节目列表</div>
-			<date-pick
-				@clickItem="getDatePrograms"
-			></date-pick>
+			<keep-alive>
+				<date-pick
+					@clickItem="getDatePrograms"
+				></date-pick>
+			</keep-alive>
 			<scroll 
 				class="list-wrap" 
 				:data="itemsList" 
@@ -42,8 +58,12 @@
 					<div class="list" v-for='(item, index) in itemsList' ref="list">
 						<span class="item time">{{format(item.beginTime)}} - {{format(item.endTime)}}</span>
 						<span class="item name">{{item.title}}</span>
-						<span class="item isPlay">
-							<i v-if="index === isPlayIndex" class="icon-LIVE"></i>
+						<span 
+							class="item isPlay"
+							@click="playBackSrc(item,index)"
+						>
+							<i v-show="index === isPlayIndex && isToDay" class="icon-LIVE"></i>
+							<span v-show="item.playUrl && item.playUrl.length > 0 && index !== isPlayIndex" class="playback">回听</span>
 						</span>
 					</div>
 				</div>
@@ -58,6 +78,7 @@
 <script>
 import Scroll from '@/base/scroll'
 import DatePick from '@/base/datePick'
+import ProgressBar from '@/base/progress-bar'
 import Load from '@/components/load/load'
 import { getChannelItem, clickItem } from 'api/index'
 import { addClass } from 'common/js/dom.js'
@@ -67,15 +88,22 @@ export default {
 	components:{
 		Scroll,
 		Load,
-		DatePick
+		DatePick,
+		ProgressBar
 	},
 	data() {
 		return {
-			itemsInfo:null,
-			itemsList:[],
-			isPlayIndex:null,
-			playStream:'',
-			playOrPause:true,			
+			itemsInfo:null,//频率信息
+			itemsList:[], //频率programs
+			isPlayIndex:null, //直播index
+			playOrPause:true,//播放暂停按钮
+			isToDay:true, //是否是今天 ，是true，否false
+			isLivePlay:true,//是否是直播
+			liveStream:null,//直播流
+			playBackTitle:'',//回听栏目title
+			percent:0, //播放百分比
+			currentTime:0, //当前播放时间
+			duration:0 //播放总时间
 		}
 	},
 	created() {
@@ -89,15 +117,17 @@ export default {
 			}else{
 				this.playOrPause = true
 			}
-		}		
-	},	
+		}	
+		this.watchPlayPercent()
+	},
 	methods:{
 		_getChannelItem(cid) {
-			getChannelItem(cid).then((res) => {
+			let todayStamp = this._timeToStamp(this._getToDay());
+			clickItem(cid, todayStamp).then((res) => {
 				let data = res.data;
 				this.itemsInfo = data;
 				this.itemsList = data.programs;
-				this.playStream = data.streams[0];
+				this.liveStream = data.streams[0];
 				if(!this.audio.getAttribute('src')){
 					this._playSrc(data.streams[0])
 				}				
@@ -155,6 +185,12 @@ export default {
 			const min = this._pad(time.getMinutes());
 			return `${hour}:${min}`
 		},
+		formatPlayTime(interval) {
+	        interval = interval | 0
+	        const minute = this._pad(interval / 60 | 0)
+	        const second = this._pad(interval % 60)
+	        return `${minute}:${second}`
+	    },
 	    _pad(num, n = 2) {
 	        let len = num.toString().length
 	        while (len < n) {
@@ -163,7 +199,7 @@ export default {
 	        }
 	        return num
 	    },
-	    //点播
+	    //点播列表
 	   	getDatePrograms(date){
 	   		let cid = this.cid;
 	   		let year = (new Date()).getFullYear();
@@ -172,13 +208,39 @@ export default {
 	   		let time = year + '-' + date.date + ' 00:00:00.0';
 	   		let stamp = this._timeToStamp(time)
 	   		let nowDate = month +'-'+ day;
-	   		let isScrollTop = true
 	   		if(nowDate == date.date){// 如果点击的是今天，那么跳动到直播
-	   			isScrollTop = false
+	   			this.isToDay = true
 	   		}else{
-	   			isScrollTop = true 
+	   			this.isToDay = false 
 	   		}
-	   		this._getItems(this.cid, stamp, isScrollTop)
+	   		this._getItems(this.cid, stamp, !this.isToDay)
+	   	},
+	   	playBackSrc(item, index) {
+	   		let playUrl = item.playUrl;
+	   		if(index == this.isPlayIndex){// 如果相等，则是直播，否则是点播
+	   			this.isLivePlay = true
+	   			this._playSrc(this.liveStream)
+	   		}else{
+	   			this.isLivePlay = false
+	   			if(!playUrl){
+		   			return 
+		   		}else{
+		   			if(playUrl.length == 0){
+		   				return 
+		   			}else{
+		   				//回听
+		   				this.playBackTitle = item.title;
+		   				this._playSrc(playUrl[0])
+		   			}
+		   		}
+	   		}	   		
+	   	},
+	   	_getToDay() {
+	   		let year = (new Date()).getFullYear();
+	   		let month = this._pad(new Date().getMonth() + 1);
+        	let day = this._pad(new Date().getDate())
+        	let today =`${year}-${month}-${day} 00:00:00.0`
+        	return today
 	   	},
 	   	//时间转时间戳
 	    _timeToStamp(date){
@@ -191,7 +253,6 @@ export default {
 	    _getItems(cid,time,isScrollTop){
 	    	clickItem(cid, time).then((res) => {
 	    		let data = res.data;
-	    		console.log(data)
 	    		this.itemsList = data.programs
 	    		if(isScrollTop){
 	    			this._scrollTop()
@@ -199,7 +260,21 @@ export default {
 	    			this._scrollTo(this.isPlayIndex)
 	    		}
 	    	})
-	    }
+	    },
+	    //监听播放信息
+	    watchPlayPercent() {
+	    	this.audio.addEventListener('timeupdate',(e) => {
+	    		const currentTime = e.target.currentTime;
+	    		const duration = e.target.duration
+	    		this.currentTime = currentTime
+	    		this.duration = duration
+	    		this.percent = currentTime / duration
+	    	})
+	    },
+	    onProgressBarChange(percent) {
+	        const currentTime = this.audio.duration * percent
+	        this.audio.currentTime = currentTime
+	    },
 	}
 }
 </script>
@@ -269,15 +344,37 @@ export default {
 					font-size 40px
 				&.live-name
 					font-size 36px
+					height 84px
 					color #666
 					no-wrap()
 					max-width 440px //最大宽度450px
 					.icon-LIVE
 						font-size 84px
+						vertical-align middle	
+					.playback
 						vertical-align middle
+						padding 6px 10px
+						background #888
+						color #fff
+						font-size 24px
+						border-radius 6px			
 				&.live-time
 					font-size 36px
 					color #999
+				&.progress-wrap
+					position: relative
+					height 72px
+					width 400px
+					.time-l
+						position: absolute
+						left -12px
+						top 24px
+						font-size 24px
+					.time-r
+						position: absolute
+						right -24px
+						top 24px
+						font-size 24px
 	.itemsList
 		width 100%
 		.title
@@ -317,6 +414,12 @@ export default {
 					text-align center
 					.icon-LIVE
 						font-size 100px
+					.playback
+						padding 6px 10px
+						background #888
+						color #fff
+						font-size 26px
+						border-radius 6px
 	.netRadioDesc
 		width 100%
 		position: fixed
