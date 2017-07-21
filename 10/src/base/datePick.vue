@@ -31,7 +31,7 @@ export default {
 			setTimeout(() => {
 				this.scrollTo()
 			},20)
-		},200)
+		},500)
 		window.addEventListener('resize', () => {
 	        if (!this.slider) {
 	          return
@@ -92,10 +92,13 @@ export default {
 	    },
 	    _setDateWrapWidth(){
 	    	let dateWrap = this.$refs.sliderGroup;	    	
-	    	let childrens = dateWrap.children;
+	    	let childrens = null;
+	    	if(dateWrap && dateWrap.children){
+	    		childrens = dateWrap.children;
+	    	}
 	    	this.dateWrapWidth = 0;
 	    	let dateWidth = 0;
-	    	if(childrens[0]){
+	    	if(childrens && childrens[0]){
 	    		dateWidth = childrens[0].clientWidth;
 	    	}
 	    	this.dateWrapWidth = parseInt(dateWidth) * childrens.length;
