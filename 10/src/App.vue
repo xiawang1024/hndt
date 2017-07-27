@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <keep-alive :include="['channel']">
-        <router-view></router-view>
-    </keep-alive>
+    <!-- <transition name="fade" mode="out-in"> -->
+      <keep-alive :include="['channel']">
+          <router-view></router-view>
+      </keep-alive>
+    <!-- </transition> -->
     <div class="audio-wrap">
     	<audio id="audio" autoplay width="0" height="0"></audio>
     </div>
@@ -22,12 +24,14 @@ export default {
 	  		me.canPlay = false
 	  	}
   	})
-  	
+
   }
 }
 </script>
 
 <style scoped lang="stylus">
-
-
+.fade-enter-active, .fade-leave-active
+  // transition: opacity .15s
+.fade-enter, .fade-leave-to
+  // opctity 0
 </style>

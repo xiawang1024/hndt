@@ -3,19 +3,17 @@
 		<div class="hd">
 			<!-- <router-link to="/channel" tag='span' class="icon-back back"></router-link> -->
 			<span class="icon-back back" @click="goToChannel"></span>
-			<span class="title">
-				河南广播网
-			</span>
+			<img src="./logo.png" alt="" class="img">
 			<load class="load"></load>
 		</div>
 		<div class="audio-wrap" >
 			<div class="item-logo" v-if="itemsInfo">
-				<img 
-					:src="'http://program.hndt.com' + itemsInfo.image" 
+				<img
+					:src="'http://program.hndt.com' + itemsInfo.image"
 					class="img"
 					:class="playOrPause ? 'isPlay' : '' "
 				>
-				<span 
+				<span
 					:class=" playOrPause ? 'icon-play' : 'icon-pause'"
 					@click="playSwitch"
 				></span>
@@ -28,13 +26,13 @@
 					{{isLivePlay ? itemsInfo.live : playBackTitle}}
 				</p>
 				<p class="live-time" v-show="isLivePlay">
-					<span>{{itemsInfo.time}}</span>					
+					<span>{{itemsInfo.time}}</span>
 				</p>
 				<p class="live-time progress-wrap" v-show="!isLivePlay">
 					<span class="time time-l">{{formatPlayTime(currentTime)}}</span>
 					<span class="progress">
-						<progress-bar 
-							:percent="percent" 
+						<progress-bar
+							:percent="percent"
 							@percentChange="onProgressBarChange"
 						></progress-bar>
 					</span>
@@ -49,16 +47,16 @@
 					@clickItem="getDatePrograms"
 				></date-pick>
 			</keep-alive>
-			<scroll 
-				class="list-wrap" 
-				:data="itemsList" 
-				ref="listview" 
+			<scroll
+				class="list-wrap"
+				:data="itemsList"
+				ref="listview"
 			>
 				<div>
 					<div class="list" v-for='(item, index) in itemsList' ref="list">
 						<span class="item time">{{format(item.beginTime)}} - {{format(item.endTime)}}</span>
 						<span class="item name">{{item.title}}</span>
-						<span 
+						<span
 							class="item isPlay"
 							@click="playBackSrc(item,index)"
 						>
@@ -117,7 +115,7 @@ export default {
 			}else{
 				this.playOrPause = true
 			}
-		}	
+		}
 		this.watchPlayPercent()
 	},
 	methods:{
@@ -130,10 +128,10 @@ export default {
 				this.liveStream = data.streams[0];
 				if(!this.audio.getAttribute('src')){
 					this._playSrc(data.streams[0])
-				}				
+				}
 				setTimeout(() => {
 					this._isPlay(data.programs)
-				},20)	
+				},20)
 			})
 		},
 		_isPlay(programs) {
@@ -143,13 +141,13 @@ export default {
 				if(currentTime <= item.endTime && currentTime >= item.beginTime){
 					this.isPlayIndex = i;
 					this._scrollTo(this.isPlayIndex)
-					return 
+					return
 				}
 			}
 		},
 		_scrollTo(index){
 			let listHeight = this.$refs.list[0].clientHeight;
-			let offsetY = parseInt(listHeight) * index 
+			let offsetY = parseInt(listHeight) * index
 			this.$refs.listview.scroll && this.$refs.listview.scroll.scrollTo(0,-offsetY,1000)
 		},
 		_scrollTop(){
@@ -204,14 +202,14 @@ export default {
 	   		let cid = this.cid;
 	   		let year = (new Date()).getFullYear();
 	   		let month = this._pad(new Date().getMonth() + 1);
-        	let day = this._pad(new Date().getDate())
+        let day = this._pad(new Date().getDate())
 	   		let time = year + '-' + date.date + ' 00:00:00.0';
 	   		let stamp = this._timeToStamp(time)
 	   		let nowDate = month +'-'+ day;
 	   		if(nowDate == date.date){// 如果点击的是今天，那么跳动到直播
 	   			this.isToDay = true
 	   		}else{
-	   			this.isToDay = false 
+	   			this.isToDay = false
 	   		}
 	   		this._getItems(this.cid, stamp, !this.isToDay)
 	   	},
@@ -223,17 +221,17 @@ export default {
 	   		}else{
 	   			this.isLivePlay = false
 	   			if(!playUrl){
-		   			return 
+		   			return
 		   		}else{
 		   			if(playUrl.length == 0){
-		   				return 
+		   				return
 		   			}else{
 		   				//回听
 		   				this.playBackTitle = item.title;
 		   				this._playSrc(playUrl[0])
 		   			}
 		   		}
-	   		}	   		
+	   		}
 	   	},
 	   	_getToDay() {
 	   		let year = (new Date()).getFullYear();
@@ -245,8 +243,8 @@ export default {
 	   	//时间转时间戳
 	    _timeToStamp(date){
 	        // var date = '2015-03-05 00:00:00.0';
-	        date = date.substring(0,19);    
-	        date = date.replace(/-/g,'/'); 
+	        date = date.substring(0,19);
+	        date = date.replace(/-/g,'/');
 	        var timestamp = new Date(date).getTime();
 	        return timestamp/1000;
 	    },
@@ -296,6 +294,10 @@ export default {
 		line-height $items-hd-height
 		text-align center
 		border-1px($color)
+		font-size 0
+		.img
+			vertical-align middle
+			width 300px
 		.back
 			display inline-block
 			position: absolute
@@ -322,7 +324,7 @@ export default {
 			font-size 0
 			.img
 				width 240px
-				height 240px 
+				height 240px
 				border-radius 50%
 				border 2px solid $color
 				&.isPlay
@@ -350,14 +352,14 @@ export default {
 					max-width 440px //最大宽度450px
 					.icon-LIVE
 						font-size 84px
-						vertical-align middle	
+						vertical-align middle
 					.playback
 						vertical-align middle
 						padding 6px 10px
 						background #888
 						color #fff
 						font-size 24px
-						border-radius 6px			
+						border-radius 6px
 				&.live-time
 					font-size 36px
 					color #999
@@ -392,16 +394,16 @@ export default {
 			width 100%
 			background #fff
 			bottom 0
-			width 750px
+			width 100%
 			overflow hidden
-			.list 
+			.list
 				display flex
 				height $items-item-list
 				line-height $items-item-list
 				border-1px($color)
 				box-sizing border-box
 				font-size 32px
-				.time 
+				.time
 					flex 2
 					text-align center
 					color #333

@@ -1,28 +1,27 @@
 <template>
 	<div class="channel">
 		<div class="logo-wrap">
-			
 			<div class="wave" @click="goToItems(isPlayIndex)">
 				<wave></wave>
 			</div>
 			<img src="./logo.png" alt="" class="img">
-			<load class="load"></load>			
+			<load class="load"></load>
 		</div>
-		<tab-slider 
-			class="tab-slider-wrap" 
+		<tab-slider
+			class="tab-slider-wrap"
 			v-if="itemsData.length>0"
 			ref="tabslider"
 			:data="itemsData"
-		>			
-			<scroll 
-				v-for="(group,index) in itemsData" 
-				:data="itemsData" 
+		>
+			<scroll
+				v-for="(group,index) in itemsData"
+				:data="itemsData"
 				:key="index"
 			>
-				<div class="scroll">										
-					<div 
-						v-for="item in group" 
-						class="items" 
+				<div class="scroll">
+					<div
+						v-for="item in group"
+						class="items"
 						@click="goToItems(item.cid,item.streams[0])"
 						:class="item.cid == isPlayIndex ? 'isLivePlay' : ''"
 					>
@@ -44,9 +43,9 @@
 							<i class="icon-blue" v-if="item.cid == isPlayIndex"></i>
 							<i class="icon-ddd" v-else></i>
 						</div>
-					</div>								
+					</div>
 				</div>
-			</scroll>			
+			</scroll>
 		</tab-slider>
 	</div>
 </template>
@@ -89,12 +88,12 @@ export default {
 	created() {
 		this._getClassItem();
 		this._parseQuery()
-		this.itemsData = new Array(3)		
+		this.itemsData = new Array(3)
 	},
 	mounted() {
 		if(!document.getElementById('audio').getAttribute('src')){
 			document.getElementById('audio').setAttribute('src','http://stream.hndt.com:1935/live/xinwen/playlist.m3u8')
-		}	
+		}
 	},
 	methods:{
 		_getClassItem() {
@@ -118,7 +117,7 @@ export default {
 			let audio = document.getElementById('audio')
 			if(cid != this.isPlayIndex){
 				audio.setAttribute('src',stream)
-			}			
+			}
 		},
 		setPlayIndex(index){
 			this.isPlayIndex = index;
@@ -152,7 +151,7 @@ export default {
 		border-1px($color)
 		.img
 			vertical-align middle
-			width 280px
+			width 300px
 		.wave
 			position: absolute
 			left 10px
@@ -195,6 +194,7 @@ export default {
 						color #666
 						no-wrap()
 						max-width 250px
+						margin 0 auto
 						.icon-LIVE
 							vertical-align middle
 							font-size 80px
@@ -205,5 +205,5 @@ export default {
 				.icon
 					.img
 						border 2px solid #1ba2ff
-				
+
 </style>
