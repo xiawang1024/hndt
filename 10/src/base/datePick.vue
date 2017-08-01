@@ -1,8 +1,8 @@
 <template>
 	<div class="slider" ref="slider" >
 		<div class="slider-group" ref="sliderGroup">
-			<div 
-				class="date" 
+			<div
+				class="date"
 				v-for="(item, index) in dateArray"
 				@click="getDatePrograms(index, item)"
 			>
@@ -10,7 +10,7 @@
 				<span class="day">{{item.date}}</span>
 				<span class="dot" v-show="currentDateIndex == index"></span>
 			</div>
-		</div>	
+		</div>
 	</div>
 </template>
 
@@ -61,7 +61,7 @@ export default {
 	},
 	methods:{
 		_initSlider() {
-			this.slider = new BScroll(this.$refs.slider,{	
+			this.slider = new BScroll(this.$refs.slider,{
 				scrollX:true,
 				scrollY:false,
 				click:true
@@ -71,8 +71,8 @@ export default {
 	    	let today = new Date(); //获取今天日期
 	    	const weeks = ['周日','周一','周二','周三','周四','周五','周六',]
 			today.setDate(today.getDate() - n);
-			let dateArray = []; 
-			let step = 1; 
+			let dateArray = [];
+			let step = 1;
 			for (var i = 0; i <= n; i++) {
 				let dateTemp = {}
 				dateTemp.date = this._pad((today.getMonth()+1))+"-"+ this._pad(today.getDate())
@@ -91,7 +91,7 @@ export default {
 	        return num
 	    },
 	    _setDateWrapWidth(){
-	    	let dateWrap = this.$refs.sliderGroup;	    	
+	    	let dateWrap = this.$refs.sliderGroup;
 	    	let childrens = null;
 	    	if(dateWrap && dateWrap.children){
 	    		childrens = dateWrap.children;
@@ -99,10 +99,12 @@ export default {
 	    	this.dateWrapWidth = 0;
 	    	let dateWidth = 0;
 	    	if(childrens && childrens[0]){
-	    		dateWidth = childrens[0].clientWidth;
+	    		dateWidth = childrens[0].clientWidth + 1;
 	    	}
-	    	this.dateWrapWidth = parseInt(dateWidth) * childrens.length;
-	    	dateWrap.style.width =  this.dateWrapWidth + 'px';
+				// console.log(dateWidth)
+	    	this.dateWrapWidth = dateWidth * childrens.length;
+	    	dateWrap.style.width = parseInt(this.dateWrapWidth) + 'px';
+				console.log(this.dateWrapWidth)
 	    },
 	    scrollTo() {
 	    	this.slider && this.slider.scrollTo(-this.dateWrapWidth,0,800)
@@ -124,7 +126,7 @@ export default {
 .slider
 	position: fixed
 	top $items-list-date-top
-	left 0 
+	left 0
 	right 0
 	height $items-date-height
 	line-height $items-date-height
@@ -163,5 +165,5 @@ export default {
 				width 16px
 				height 16px
 				border-radius 50%
-				background #1ba2ff				
+				background #1ba2ff
 </style>

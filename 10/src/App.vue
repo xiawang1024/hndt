@@ -6,7 +6,7 @@
       </keep-alive>
     <!-- </transition> -->
     <div class="audio-wrap">
-    	<audio id="audio" autoplay width="0" height="0"></audio>
+    	<video id="audio" autoplay width="0" height="0"></video>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
     var me = this
   	this.canPlay = true
   	document.getElementsByTagName('body')[0].addEventListener('touchstart',() => {
-  		if(this.audio.getAttribute('src') && this.canPlay){
+  		if(this.audio && this.audio.getAttribute('src') && this.canPlay){
 	  		this.audio.play()
 	  		me.canPlay = false
 	  	}

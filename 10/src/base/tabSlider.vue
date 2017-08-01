@@ -1,9 +1,9 @@
 <template>
 	<div class="slider" ref="slider" >
 		<div class="slider-group" ref="sliderGroup">
-			<slot>	
+			<slot>
 			</slot>
-		</div>	
+		</div>
 		<div class="tab">
 			<div class="item" v-for="(item,index) in tabArr">
 				<span
@@ -59,7 +59,7 @@ export default {
 				momentum:false,
 				snap:true,
 				snapThreshold:0.3,
-				// click:true
+				click:true
 			})
 			this.slider.on('scrollEnd',() => {
 				let pageIndex = this.slider.getCurrentPage().pageX;
@@ -85,12 +85,13 @@ export default {
 		_slideTo(index) {
 			// this.slider.
 		},
-		goToPage(index){			
+		goToPage(index){
+			console.log(index)
 			this.slider.goToPage(index, 0, 600);
-			this.currentPageIndex = index;	
+			this.currentPageIndex = index;
 		},
 	}
-}	
+}
 
 </script>
 
@@ -106,10 +107,13 @@ export default {
 	background #fff
 	border-1px(#bebebe)
 	position: absolute
+	z-index 20
 	.item
 		flex 1
 		text-align center
 		font-size 32px
+		span
+			extend-click()
 		.isCurrent
 			padding 10px 20px
 			border-radius 50px

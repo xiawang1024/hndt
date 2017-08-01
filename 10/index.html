@@ -7,5 +7,29 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script type="text/javascript" src="./static/js/jweixin.js"></script>
+    <script type="text/javascript">
+      window.onload=function(){
+        wx.config({
+              // 配置信息
+          debug: false,
+          appId: '',
+          timestamp: 1,
+          nonceStr: '',
+          signature: '',
+          jsApiList: []
+        });
+        wx.ready(() => {
+            audioBtn.play();
+        });
+        (function audioAutoPlay() {
+           var audio = document.getElementById('audio');
+              audio.play();
+          document.addEventListener("WeixinJSBridgeReady", function () {
+              audio.play();
+           }, false);
+        })();
+      }
+    </script>
   </body>
 </html>

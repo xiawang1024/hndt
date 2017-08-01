@@ -74,12 +74,14 @@
 </template>
 
 <script>
+import Hls from 'hls'
 import Scroll from '@/base/scroll'
 import DatePick from '@/base/datePick'
 import ProgressBar from '@/base/progress-bar'
 import Load from '@/components/load/load'
 import { getChannelItem, clickItem } from 'api/index'
 import { addClass } from 'common/js/dom.js'
+import { isPc } from 'common/js/isPc.js'
 import BScroll from 'better-scroll'
 export default {
 	name:'items',

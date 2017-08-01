@@ -10,11 +10,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.16.1",
+    "better-scroll": "^0.1.15",
+    "fastclick": "^1.0.6",
+    "hls.js": "^0.7.11",
     "vue": "^2.3.3",
-    "vue-router": "^2.6.0",
-    "axios":"^0.16.1",
-    "fastclick":"^1.0.6",
-    "better-scroll":"^0.1.15"
+    "vue-router": "^2.6.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -51,10 +52,9 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0",
-    "stylus":"^0.54.5",
-    "stylus-loader":"^2.1.1",
-    "stylus-px2rem":"1.0.11"
-
+    "stylus": "^0.54.5",
+    "stylus-loader": "^2.1.1",
+    "stylus-px2rem": "1.0.11"
   },
   "engines": {
     "node": ">= 4.0.0",
