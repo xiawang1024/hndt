@@ -1,0 +1,83 @@
+.popover {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  height: 200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid #eee;
+}
+.popover .g-hd {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  background: url("../imgs/bg.png") center center no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.popover .g-hd .logo-wrap {
+  font-size: 0;
+  margin-left: 10px;
+}
+.popover .g-hd .logo-wrap .img {
+  display: block;
+  height: 22px;
+  width: auto;
+  margin-top: 4px;
+}
+.popover .g-hd .ctrl-wrap {
+  position: absolute;
+  right: 15px;
+  top: 4px;
+}
+.popover .g-hd .ctrl-wrap .close {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: url("../imgs/close.png") center center no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+.popover .main {
+  width: 300px;
+  height: 135px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.popover .main .title {
+  font-size: 16px;
+  color: #222;
+  text-align: center;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.popover .main .info {
+  margin-top: 13px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.429;
+}
+.popover .share {
+  border-top: 1px solid #ccc;
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.popover .share span {
+  float: right;
+  font-size: 14px;
+  margin-right: 15px;
+}
+.popover .share span a {
+  color: #0081dc;
+}

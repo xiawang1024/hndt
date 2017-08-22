@@ -1,0 +1,313 @@
+@import './base.styl'
+@import './mixin.styl'
+body
+	background #fff
+.g-hd
+	width 100%
+	height 40px
+	line-height 40px
+	margin 0 auto
+	border-bottom 1px solid #ccc
+	ul
+		width $body-width
+		margin 0 auto
+		font-size 0
+		.list
+			display inline-block
+			width 100px
+			line-height 40px
+			text-align center
+			border-box()
+			&.isActive
+				border-bottom 2px solid $color
+				a
+					color $color
+			&:hover
+				border-bottom 2px solid $color
+				a
+					color $color
+			a
+				vertical-align middle
+				display inline-block
+				width 100%
+				height 14px
+				line-height 14px
+				// border-right 1px solid #adadad
+				font-size 14px
+				color #000
+				border-box()
+				font-weight 500
+				&:hover
+					color $color
+					text-decoration none
+			&:last-child
+				a
+					border-right none
+.g-logo-wrap
+	width $body-width
+	height 90px
+	margin 0 auto
+	.logo-img,.channel-logo
+		float left
+		height 100%
+		font-size 0
+		overflow hidden
+		margin-right 60px
+		.logo
+			display inline-block
+			vertical-align:middle
+		span
+			display inline-block
+			height 100%
+			vertical-align middle
+	.link-location
+		line-height 90px
+		font-size 15px
+.g-logo-text
+	width $body-width
+	margin 0 auto
+	font-size 0
+.g-bd
+	width $body-width
+	margin 30px auto 0
+	.live-wrap
+		width 100%
+		border-box()
+		.left
+			position relative
+			float left
+			width 590px
+			border-box()
+			.video-wrap
+				position relative
+				width 100%
+				border-box()
+				height 393px
+				overflow hidden
+				.img
+					display block
+					min-width 100%
+					min-height 100%
+				.live-icon
+					position absolute
+					right 0
+					top 0
+					display inline-block
+					width 60px
+					text-align center
+					height 26px
+					line-height 26px
+					border-box()
+					border 1px solid #fb8a41
+					color #fb8a41
+					background #323230
+					opacity 0.95
+			.text-wrap
+				position absolute
+				bottom 0
+				width 100%
+				height 200px
+				border-box()
+				padding 110px 50px 0
+				background linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.75))
+				.title
+					font-size 18px
+					a
+						color #fff
+				.desc
+					margin-top 10px
+					font-size 14px
+					color rgba(255, 255, 255, 0.75)
+					line-height 1.429
+		.right
+			width 385px
+			float right
+			border-box()
+			.item
+				float left
+				width 180px
+				overflow hidden
+				margin-right 25px
+				margin-bottom 30px
+				&:nth-child(2n)
+					margin-right 0
+				&:nth-child(3),&:nth-child(4)
+					margin-bottom 0
+				.video-wrap
+					position relative
+					width 100%
+					height 120px
+					overflow hidden
+					cursor pointer
+					&:hover
+						.mark
+							display block
+					.img
+						display block
+						width 100%
+						height 100%
+					.live-icon
+						position absolute
+						right 0
+						top 0
+						display inline-block
+						width 60px
+						text-align center
+						height 26px
+						line-height 26px
+						border-box()
+						border 1px solid #fb8a41
+						color #fb8a41
+						background #323230
+						opacity 0.95
+					.mark
+						display none
+						position absolute
+						top 0
+						left 0
+						width 100%
+						height 100%
+						background rgba(0,0,0,0.6)
+						text-align center
+						vertical-align middle
+						.logo,span
+							line-height 120px
+							vertical-align middle
+				.text-wrap
+					width 100%
+					.title
+						margin-top 20px
+						width 100%
+						no-wrap()
+						font-size 16px
+					.desc
+						width 100%
+						no-wrap()
+						font-size 12px
+						color #999
+						margin-top 12px
+	.bd-logo-text
+		overflow hidden
+		margin-top 30px
+		font-size 0
+	.video-list-wrap
+		margin-top 30px
+		width $body-width
+		border-box()
+		.item
+			float left
+			width 180px
+			overflow hidden
+			margin-right 25px
+			margin-bottom 30px
+			&:nth-child(5n)
+				margin-right 0
+			.video-wrap
+				position relative
+				width 100%
+				height 120px
+				overflow hidden
+				cursor pointer
+				&:hover
+					.mark
+						display block
+				.img
+					display block
+					width 100%
+					height 100%
+				.live-icon
+					display none
+					position absolute
+					right 0
+					top 0
+					// display inline-block
+					width 60px
+					text-align center
+					height 26px
+					line-height 26px
+					border-box()
+					border 1px solid #fb8a41
+					color #fb8a41
+					background #323230
+					opacity 0.95
+				.mark
+					display none
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+					background rgba(0,0,0,0.6)
+					text-align center
+					vertical-align middle
+					.logo,span
+						line-height 120px
+						vertical-align middle
+			.text-wrap
+				width 100%
+				.title
+					margin-top 20px
+					width 100%
+					no-wrap()
+					font-size 16px
+				.desc
+					width 100%
+					no-wrap()
+					font-size 12px
+					color #999
+					margin-top 12px
+.g-pages
+	width 500px
+	margin 40px auto 30px
+	border-box()
+	overflow hidden
+	text-align center
+	font-size 0
+	.page-info
+		font-size 12px
+		color #000
+		margin-right 20px
+	button
+		display inline-block
+		width 64px
+		height 24px
+		line-height 24px
+		text-align center
+		border-box()
+		border 1px solid #bcbcbc
+		background #fff
+		margin-right 10px
+		a
+			color #999
+.g-ft
+	width 100%
+	margin-top 60px
+	padding 40px 0 60px
+	border-top 2px solid #dedede
+	overflow hidden
+	.ft-wrap
+		width $body-width
+		margin 0 auto
+		text-align center
+		.qrcode
+			float left
+			margin-left 180px
+		.text
+			float left
+			margin-left 45px
+			.row
+				line-height 2.2
+				font-size 12px
+				color #333
+				text-align left
+				&.beian-wrap
+					margin-top 10px
+					.beian
+						display inline-block
+						vertical-align middle
+					.txt
+						display inline-block
+						height 20px
+						line-height 20px
+						font-size 14px
+						vertical-align middle

@@ -1,0 +1,182 @@
+@import './common/index.styl'
+body
+  overflow hidden
+.g-hd
+  position fixed
+  z-index 10
+  width 100%
+  height 120px
+  line-height 120px
+  background #1ba2ff
+  overflow hidden
+  .logo-wrap
+    float left
+    font-size 0
+    display inline-block
+    width 90px
+    height 87px
+    margin-top 19px
+    margin-left 40px
+    overflow hidden
+    .img
+      display block
+      width 100%
+      height 100%
+  .title
+    float left
+    margin-left 10px
+    display inline-block
+    line-height 120px
+    font-size 42px
+    color #fff
+  .share-wrap
+    float right
+    margin-top 29px
+    margin-right 40px
+    display inline-block
+    width 65px
+    height 61px
+    background url('../imgs/share.png') center center no-repeat
+    background-size cover
+.g-bd
+  width 100%
+  border-box()
+  overflow auto
+  -webkit-overflow-scrolling: touch
+  margin-top 120px
+  padding 80px 40px
+  background #fff
+  .main
+    width 100%
+    border-box()
+    .title
+      font-size 65px
+      color #000
+      font-weight 700
+      line-height 1.2
+    .info
+      margin-top 46px
+      font-size 34px
+      color #999
+    .video-wrap
+      width 100%
+      height 565px
+      margin-top 60px
+      #video
+        width 100%
+        height 100%
+    .text-wrap
+      margin-top 75px
+      font-size 40px
+      line-height 1.75
+      color rgb(68, 68, 68)
+  .load-wrap
+    width 100%
+    margin-top 150px
+    .load
+        width 800px
+        display block
+        margin 0 auto
+        height 112px
+        line-height 112px
+        border none
+        outline none
+        border-radius 56px
+        color #fff
+        background url('../imgs/phone.png') left 1.5rem center no-repeat
+        background-size auto 0.56rem
+        background-color #1ba2ff
+        font-size 40px
+        a
+          color #fff
+      .desc
+        text-align center
+        margin-top 32px
+        font-size 34px
+        color #999
+        padding-bottom 100px
+  .news-list
+    width 100%
+    // margin-top 110px
+    .news-title
+      font-size 48px
+      color #1ba2ff
+      padding-bottom 40px
+      border-1px(#ddd)
+    .list-wrap
+      width 100%
+      .list
+        display flex
+        width 100%
+        border-box()
+        padding 40px 0
+        border-1px(#ddd)
+        .video-wrap
+          position relative
+          width 330px
+          height 186px
+          border-box()
+          .img
+            display block
+            width 100%
+            height 100%
+          .live-icon
+            position absolute
+            top 0
+            right 0
+            display block
+            width 110px
+            height 40px
+            line-height 40px
+            text-align center
+            border-box()
+            border 1px solid #fb8a41
+            color #fb8a41
+            font-size 28px
+            background rgba(0,0,0,0.8)
+        .text-wrap
+          flex 1
+          margin-left 30px
+          .title
+            margin-top 6px
+            font-size 46px
+            font-weight 500
+            a
+              color #000
+          .desc
+            margin-top 30px
+            font-size 34px
+            color #bbb
+          .time-wrap
+            width 100%
+            margin-top 30px
+            font-size 34px
+            color #bbb
+            .time-ago
+              float left
+            .time-total
+              float right
+              .time-icon
+                vertical-align middle
+                display inline-block
+                width 33px
+                height 31px
+                background url('../imgs/time-icon.png') left center no-repeat
+                background-size cover
+              span
+                vertical-align middle
+.g-ft
+	width 100%
+	height 150px
+	background #4499e1
+	color #fff
+	text-align center
+	overflow hidden
+	.version
+		margin-top 20px
+		font-size 36px
+		a
+			color #fff
+	.copy
+		margin-top 20px
+		font-size 36px

@@ -1,0 +1,268 @@
+@import './base.styl'
+@import './mixin.styl'
+body
+	background #fff
+.g-logo-wrap
+	width $body-width
+	height 90px
+	margin 0 auto
+	.logo-img,.channel-logo
+		float left
+		height 100%
+		font-size 0
+		overflow hidden
+		margin-right 60px
+		.logo
+			display inline-block
+			vertical-align:middle
+		span
+			display inline-block
+			height 100%
+			vertical-align middle
+	.link-location
+		line-height 90px
+		font-size 15px
+.g-bd
+	width 100%
+	background #17162a
+	.main
+		width 1200px
+		margin 0 auto
+		overflow hidden
+		.hd
+			width 100%
+			text-align center
+			color #fff
+			background url('../images/hdcover.jpg') center center no-repeat
+			background-size cover
+			padding-bottom 58px
+			.avatar
+				margin-top 90px
+				display inline-block
+				width 126px
+				height 126px
+				border-radius 50%
+				overflow hidden
+				border 3px solid rgba(255,255,255,0.3)
+			.name
+				font-size 26px
+				margin-top 24px
+			.desc
+				margin-top 14px
+				font-size 14px
+			.listener
+				margin-top 22px
+				.icon
+					vertical-align middle
+					display inline-block
+					width 17px
+					height 16px
+					background url('../imgs/listener-icon.png') center center no-repeat
+					background-size cover
+				.num
+					vertical-align middle
+					margin-left 6px
+					font-size 16px
+			.follow
+				margin-top 20px
+				width 100px
+				height 36px
+				line-height 36px
+				font-size 16px
+				text-align center
+				border-radius 36px
+				background #1ba2ff
+				border none
+				color #fff
+		.album-voice
+			width 1000px
+			margin 0 auto
+			background #fff
+			border-box()
+			padding 0 40px
+			.album-wrap
+				width 100%
+				overflow hidden
+				.title
+					margin-top 40px
+					font-size 18px
+					color #333
+				.album-list
+					margin-top 30px
+					.list
+						float left
+						width 140px
+						border-box()
+						margin-bottom 30px
+						overflow hidden
+						margin-right 55px
+						&:last-child
+							margin-right 0
+						.album-cover
+							width 140px
+							height 140px
+							overflow hidden
+							font-size 0
+							.img
+								width 100%
+								height 100%
+						.desc
+							margin-top 14px
+							font-size 15px
+							color #666
+							line-height 1.5
+			.voice-wrap
+				margin-top 10px
+				width 100%
+				overflow hidden
+				.title
+					font-size 18px
+					color #333
+					padding-bottom 30px
+					border-bottom 1px solid #ddd
+				.list-wrap
+					width 100%
+					.list
+						width 100%
+						border-box()
+						padding 20px 0
+						border-bottom 1px solid #ddd
+						.head
+							.from-wrap
+								float left
+								font-size 14px
+								span
+									color #1ba2ff
+							.time
+								float right
+								font-size 14px
+								color #666
+						.play-box
+							width 360px
+							margin-top 18px
+							.play-pause
+								float left
+								display inline-block
+								width 38px
+								height 38px
+								background url('../imgs/playBtn.png') center center no-repeat
+								background-size 38px auto
+								cursor pointer
+								&.paused
+									background url('../imgs/pausedBtn.png') center center no-repeat
+									background-size 38px auto
+							.progress
+								float left
+								margin-left 20px
+								display inline-block
+								width 300px
+						.foot-c
+							margin-top 16px
+							.time-ago
+								float left
+								font-size 14px
+								color #999
+							.ctrl
+								float right
+								margin-right -40px
+								.download
+									float left
+									margin-right 10px
+									display inline-block
+									font-size 14px
+									height 20px
+									line-height 20px
+									padding-left 24px
+									background url('../imgs/download.png') left center no-repeat
+									background-size 19px 20px
+									cursor pointer
+								.praise
+									float left
+									margin-right 10px
+									display inline-block
+									font-size 14px
+									height 21px
+									line-height 21px
+									padding-left 24px
+									background url('../imgs/zan-icon.png') left center no-repeat
+									background-size 20px 21px
+								.share
+									float left
+									overflow hidden
+									.share-icon
+										vertical-align middle
+										display inline-block
+										width 70px
+										height 21px
+										line-height 21px
+										font-size 14px
+										color #666
+										padding-left 30px
+										border-box()
+										background url('../imgs/share-icon.png') no-repeat
+										background-size 22px 21px
+									.share-wrap
+										vertical-align middle
+										display inline-block
+										width 150px
+										overflow hidden
+	.page-wrap
+		width 1000px
+		margin 0 auto
+		background #fff
+		overflow hidden
+		.g-pages
+			width 500px
+			margin 40px auto 30px
+			border-box()
+			overflow hidden
+			text-align center
+			font-size 0
+			.page-info
+				font-size 12px
+				color #000
+				margin-right 20px
+			button
+				display inline-block
+				width 64px
+				height 24px
+				line-height 24px
+				text-align center
+				border-box()
+				border 1px solid #bcbcbc
+				background #fff
+				margin-right 10px
+				a
+					color #999
+.g-ft
+	width 100%
+	// margin-top 60px
+	padding 40px 0 60px
+	border-top 2px solid #dedede
+	overflow hidden
+	.ft-wrap
+		width $body-width
+		margin 0 auto
+		text-align center
+		.qrcode
+			float left
+			margin-left 180px
+		.text
+			float left
+			margin-left 45px
+			.row
+				line-height 2.2
+				font-size 12px
+				color #333
+				text-align left
+				&.beian-wrap
+					margin-top 10px
+					.beian
+						display inline-block
+						vertical-align middle
+					.txt
+						display inline-block
+						height 20px
+						line-height 20px
+						font-size 14px
+						vertical-align middle

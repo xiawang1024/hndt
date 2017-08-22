@@ -1,0 +1,186 @@
+@import './base.styl'
+@import './mixin.styl'
+body
+	background #fff
+.g-hd
+	width 100%
+	height 40px
+	line-height 40px
+	margin 0 auto
+	border-bottom 1px solid #ccc
+	ul
+		width $body-width
+		margin 0 auto
+		font-size 0
+		.list
+			display inline-block
+			width 100px
+			line-height 40px
+			text-align center
+			border-box()
+			&.isActive
+				border-bottom 2px solid $color
+				a
+					color $color
+			&:hover
+				border-bottom 2px solid $color
+				a
+					color $color
+			a
+				vertical-align middle
+				display inline-block
+				width 100%
+				height 14px
+				line-height 14px
+				// border-right 1px solid #adadad
+				font-size 14px
+				color #000
+				border-box()
+				font-weight 500
+				&:hover
+					color $color
+					text-decoration none
+			&:last-child
+				a
+					border-right none
+.g-logo-wrap
+	width $body-width
+	height 90px
+	margin 0 auto
+	.logo-img,.channel-logo
+		float left
+		height 100%
+		font-size 0
+		overflow hidden
+		margin-right 60px
+		.logo
+			display inline-block
+			vertical-align:middle
+		span
+			display inline-block
+			height 100%
+			vertical-align middle
+	.link-location
+		line-height 90px
+		font-size 15px
+.g-bd
+	width 100%
+	overflow hidden
+	background #191919
+	.live-wrap
+		width $body-width
+		margin 0 auto
+		padding-bottom 40px
+		.title
+			font-size 18px
+			color #fff
+			margin 19px 0 23px 0
+		.video-wrap
+			position relative
+			z-index 10
+			width 1340px
+			overflow hidden
+			left -170px
+			#video
+				float left
+				position relative
+				.btn
+					position absolute
+					z-index 50
+					right -16px
+					top 50%
+					margin-top -25px
+					display inline-block
+					width 16px
+					height 50px
+					line-height 50px
+					background url('../imgs/right.png') center center no-repeat
+					background-color #000
+					cursor pointer
+					&.left
+						background url('../imgs/left.png') center center no-repeat
+						background-color #000
+			.video-desc
+				position relative
+				float left
+				width 340px
+				height 562px
+				border-box()
+				padding 20px 25px 0 40px
+				background #333
+				.content
+					margin-top 40px
+					font-size 16px
+					line-height 1.875
+					color #999
+.g-recommend
+	width 100%
+	background #000
+	overflow hidden
+	.recommend-wrap
+		width $body-width
+		margin 0 auto
+		padding-bottom 25px
+		.title
+			margin 28px 0
+			font-size 18px
+			color rgb(0, 129, 220)
+		.list
+			width $body-width
+			border-box()
+			.item
+				float left
+				margin-right 40px
+				&:last-child
+					margin-right 0
+				.img-wrap
+					width 168px
+					height 95px
+					overflow hidden
+					.img
+						display block
+						width 100%
+						height 100%
+				.text-wrap
+					width 100%
+					border-box()
+					margin-top 15px
+					.name
+						font-size 16px
+						color #fff
+					.desc
+						margin-top 8px
+						font-size 14px
+						color rgb(102,102,102)
+.g-ft
+	width 100%
+	margin-top 60px
+	padding 40px 0 60px
+	border-top 2px solid #dedede
+	overflow hidden
+	.ft-wrap
+		width $body-width
+		margin 0 auto
+		text-align center
+		.qrcode
+			float left
+			margin-left 180px
+		.text
+			float left
+			margin-left 45px
+			.row
+				line-height 2.2
+				font-size 12px
+				color #333
+				text-align left
+				&.beian-wrap
+					margin-top 10px
+					.beian
+						display inline-block
+						vertical-align middle
+					.txt
+						display inline-block
+						height 20px
+						line-height 20px
+						font-size 14px
+						vertical-align middle

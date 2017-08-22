@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
+</head>
+<body>
+  <div class="left">
+    <div class="logo">
+      <img src="./imgs/logo.png" alt="" class="img">
+    </div>
+    <div class="www-logo">
+      <img src="./imgs/www.logo.png" alt="" class="img">
+      <div class="gotowww">
+        <a href="http://www.hndt.com">点击进入</a>
+      </div>
+    </div>
+    <div class="app-logo">
+      <img src="./imgs/app.logo.png" alt="" class="img">
+      <img src="./imgs/qrcode.png" alt="" class="qrcode">
+      <div class="text">
+        扫描二维码下载
+      </div>
+    </div>
+  </div>
+  <div class="login">
+    <div class="icon-office"></div>
+    <form class="login-form" method="post" action="/seeyon/main.do?method=login">
+      <icon class="qrLoginBtn"></icon>
+      <p class="account-wrap">
+        <span class="icon"></span>
+        <input type="text" name="" value="" placeholder="帐号">
+      </p>
+      <p class="pass-wrap">
+        <span class="icon"></span>
+        <input type="password" name="" value="" placeholder="密码">
+      </p>
+      <p class="miss-pass">
+        <span class="tips">无效的帐号和密码！</span>
+        <a href="#">忘记密码？</a>
+      </p>
+      <button class="loginBtn">登录</button>
+    </form>
+    <div class="qr-login">
+      <icon class="accountLoginBtn"></icon>
+      <div class="qrcode-wrap">
+        <img src="./imgs/qrLogin.png" alt="" class="img">
+        <span class="text">微信扫描二维码</span>
+        <a href="javascript:void(0)" class="refresh">刷新二维码</a>
+      </div>
+      <div class="qrcode-wrap">
+        <img src="./imgs/clientQr.png" alt="" class="img">
+        <span class="text">下载移动客户端</span>
+        <a href="javascript:void(0)" class="refresh email">致信客户端</a>
+      </div>
+    </div>
+  </div>
+  <div class="language">
+    <span class="selectedLanguage">中文（简体）</span>
+    <span class="icon-down"></span>
+    <ul class="list-wrap">
+      <li class="list">中文（简体）</li>
+      <li class="list">English</li>
+      <li class="list">中文（繁体）</li>
+    </ul>
+  </div>
+<script src="./js/jquery2.1.4.js" charset="utf-8"></script>
+<script src="./js/index.js" charset="utf-8"></script>
+</body>
+</html>

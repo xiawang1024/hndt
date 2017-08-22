@@ -1,0 +1,136 @@
+@import './base.styl'
+@import './mixin.styl'
+.win
+	position relative
+	width 600px
+	height 400px
+	background #fff
+	border-box()
+	.radio
+		position absolute
+		right 0
+		top 10px
+	.toast-hd
+		position relative
+		width 100%
+		border-box()
+		height 40px
+		line-height 40px
+		background url('../imgs/bg.png') center center no-repeat
+		background-size cover
+		.logo-wrap
+			position absolute
+			left 15px
+			margin-top 6px
+			.img,span
+				vertical-align middle
+		.radio-wrap
+			position absolute
+			right 75px
+			margin-top 14px
+			.img,span
+				vertical-align middle
+		.ctrl-wrap
+			position absolute
+			right 0
+			.hidden,.close
+				display inline-block
+				width 16px
+				height 16px
+				cursor pointer
+				vertical-align middle
+				margin-right 10px
+			.hidden
+				// margin-top 6px
+				background url('../imgs/hidden.png') center center no-repeat
+				background-size cover
+			.close
+				background url('../imgs/close.png') center center no-repeat
+				background-size cover
+	.toast-main
+		border-box()
+		padding 15px
+		.toast-left
+			float left
+			width 240px
+			overflow hidden
+			.img-txt
+				position relative
+				width 100%
+				height 135px
+				border-box()
+				overflow hidden
+				margin-bottom 13px
+				.img
+					display block
+					width 100%
+					height 100%
+				.text
+					position absolute
+					bottom 0
+					width 100%
+					height 25px
+					line-height 25px
+					font-size 14px
+					text-align center
+					background rgba(0,0,0,0.35)
+					no-wrap()
+					border-box()
+					padding 0 8px
+					a
+						color rgb(244, 246, 249)
+			.img-list-wrap
+				font-size 0
+				.item
+					display inline-block
+					float left
+					width 74px
+					height 74px
+					overflow hidden
+					margin-right 9px
+					&:last-child
+						margin-right 0
+					.img
+						display block
+						width 100%
+						height 100%
+		.toast-right
+			float left
+			width 300px
+			margin-left 24px
+			.hot-wrap
+				.hot
+					width 100%
+					no-wrap()
+					a
+						display inline-block
+						no-wrap()
+						font-size 18px
+						color rgb(0, 129, 220)
+						line-height 2
+			.list-wrap
+				margin-top 6px
+				.wrap
+					width 100%
+					&:first-child
+						border-bottom 1px dashed #ccc
+						margin-bottom 8px
+						padding-bottom 8px
+					.list
+						display inline-block
+						width 100%
+						no-wrap()
+						.dot
+							display inline-block
+							width 2px
+							height 2px
+							background #666
+							vertical-align middle
+							margin-right 10px
+						a
+							font-size 14px
+							line-height 2
+							color #666
+							vertical-align middle
+							&:hover
+								color #0081dc

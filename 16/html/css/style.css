@@ -1,0 +1,184 @@
+.win {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.win .radio {
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+.win .toast-hd {
+  position: relative;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  background: url("../imgs/bg.png") center center no-repeat;
+  background-size: cover;
+}
+.win .toast-hd .logo-wrap {
+  position: absolute;
+  left: 15px;
+  margin-top: 6px;
+}
+.win .toast-hd .logo-wrap .img,
+.win .toast-hd .logo-wrap span {
+  vertical-align: middle;
+}
+.win .toast-hd .radio-wrap {
+  position: absolute;
+  right: 75px;
+  margin-top: 14px;
+}
+.win .toast-hd .radio-wrap .img,
+.win .toast-hd .radio-wrap span {
+  vertical-align: middle;
+}
+.win .toast-hd .ctrl-wrap {
+  position: absolute;
+  right: 0;
+}
+.win .toast-hd .ctrl-wrap .hidden,
+.win .toast-hd .ctrl-wrap .close {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.win .toast-hd .ctrl-wrap .hidden {
+  background: url("../imgs/hidden.png") center center no-repeat;
+  background-size: cover;
+}
+.win .toast-hd .ctrl-wrap .close {
+  background: url("../imgs/close.png") center center no-repeat;
+  background-size: cover;
+}
+.win .toast-main {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 15px;
+}
+.win .toast-main .toast-left {
+  float: left;
+  width: 240px;
+  overflow: hidden;
+}
+.win .toast-main .toast-left .img-txt {
+  position: relative;
+  width: 100%;
+  height: 135px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-bottom: 13px;
+}
+.win .toast-main .toast-left .img-txt .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.win .toast-main .toast-left .img-txt .text {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  background: rgba(0,0,0,0.35);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 8px;
+}
+.win .toast-main .toast-left .img-txt .text a {
+  color: #f4f6f9;
+}
+.win .toast-main .toast-left .img-list-wrap {
+  font-size: 0;
+}
+.win .toast-main .toast-left .img-list-wrap .item {
+  display: inline-block;
+  float: left;
+  width: 74px;
+  height: 74px;
+  overflow: hidden;
+  margin-right: 9px;
+}
+.win .toast-main .toast-left .img-list-wrap .item:last-child {
+  margin-right: 0;
+}
+.win .toast-main .toast-left .img-list-wrap .item .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.win .toast-main .toast-right {
+  float: left;
+  width: 300px;
+  margin-left: 24px;
+}
+.win .toast-main .toast-right .hot-wrap .hot {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.win .toast-main .toast-right .hot-wrap .hot a {
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 18px;
+  color: #0081dc;
+  line-height: 2;
+}
+.win .toast-main .toast-right .list-wrap {
+  margin-top: 6px;
+}
+.win .toast-main .toast-right .list-wrap .wrap {
+  width: 100%;
+}
+.win .toast-main .toast-right .list-wrap .wrap:first-child {
+  border-bottom: 1px dashed #ccc;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.win .toast-main .toast-right .list-wrap .wrap .list {
+  display: inline-block;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.win .toast-main .toast-right .list-wrap .wrap .list .dot {
+  display: inline-block;
+  width: 2px;
+  height: 2px;
+  background: #666;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.win .toast-main .toast-right .list-wrap .wrap .list a {
+  font-size: 14px;
+  line-height: 2;
+  color: #666;
+  vertical-align: middle;
+}
+.win .toast-main .toast-right .list-wrap .wrap .list a:hover {
+  color: #0081dc;
+}

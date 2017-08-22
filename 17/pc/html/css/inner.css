@@ -1,0 +1,239 @@
+body {
+  background: #fff;
+}
+.g-hd {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  border-bottom: 1px solid #ccc;
+}
+.g-hd ul {
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 0;
+}
+.g-hd ul .list {
+  display: inline-block;
+  width: 100px;
+  line-height: 40px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-hd ul .list.isActive {
+  border-bottom: 2px solid #0081dc;
+}
+.g-hd ul .list.isActive a {
+  color: #0081dc;
+}
+.g-hd ul .list:hover {
+  border-bottom: 2px solid #0081dc;
+}
+.g-hd ul .list:hover a {
+  color: #0081dc;
+}
+.g-hd ul .list a {
+  vertical-align: middle;
+  display: inline-block;
+  width: 100%;
+  height: 14px;
+  line-height: 14px;
+  font-size: 14px;
+  color: #000;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-weight: 500;
+}
+.g-hd ul .list a:hover {
+  color: #0081dc;
+  text-decoration: none;
+}
+.g-hd ul .list:last-child a {
+  border-right: none;
+}
+.g-logo-wrap {
+  width: 1000px;
+  height: 90px;
+  margin: 0 auto;
+}
+.g-logo-wrap .logo-img,
+.g-logo-wrap .channel-logo {
+  float: left;
+  height: 100%;
+  font-size: 0;
+  overflow: hidden;
+  margin-right: 60px;
+}
+.g-logo-wrap .logo-img .logo,
+.g-logo-wrap .channel-logo .logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+.g-logo-wrap .logo-img span,
+.g-logo-wrap .channel-logo span {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.g-logo-wrap .link-location {
+  line-height: 90px;
+  font-size: 15px;
+}
+.g-bd {
+  width: 100%;
+  overflow: hidden;
+  background: #191919;
+}
+.g-bd .live-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+.g-bd .live-wrap .title {
+  font-size: 18px;
+  color: #fff;
+  margin: 19px 0 23px 0;
+}
+.g-bd .live-wrap .video-wrap {
+  position: relative;
+  z-index: 10;
+  width: 1340px;
+  overflow: hidden;
+  left: -170px;
+}
+.g-bd .live-wrap .video-wrap #video {
+  float: left;
+  position: relative;
+}
+.g-bd .live-wrap .video-wrap #video .btn {
+  position: absolute;
+  z-index: 50;
+  right: -16px;
+  top: 50%;
+  margin-top: -25px;
+  display: inline-block;
+  width: 16px;
+  height: 50px;
+  line-height: 50px;
+  background: url("../imgs/right.png") center center no-repeat;
+  background-color: #000;
+  cursor: pointer;
+}
+.g-bd .live-wrap .video-wrap #video .btn.left {
+  background: url("../imgs/left.png") center center no-repeat;
+  background-color: #000;
+}
+.g-bd .live-wrap .video-wrap .video-desc {
+  position: relative;
+  float: left;
+  width: 340px;
+  height: 562px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px 25px 0 40px;
+  background: #333;
+}
+.g-bd .live-wrap .video-wrap .video-desc .content {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.875;
+  color: #999;
+}
+.g-recommend {
+  width: 100%;
+  background: #000;
+  overflow: hidden;
+}
+.g-recommend .recommend-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 25px;
+}
+.g-recommend .recommend-wrap .title {
+  margin: 28px 0;
+  font-size: 18px;
+  color: #0081dc;
+}
+.g-recommend .recommend-wrap .list {
+  width: 1000px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.g-recommend .recommend-wrap .list .item {
+  float: left;
+  margin-right: 40px;
+}
+.g-recommend .recommend-wrap .list .item:last-child {
+  margin-right: 0;
+}
+.g-recommend .recommend-wrap .list .item .img-wrap {
+  width: 168px;
+  height: 95px;
+  overflow: hidden;
+}
+.g-recommend .recommend-wrap .list .item .img-wrap .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.g-recommend .recommend-wrap .list .item .text-wrap {
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+.g-recommend .recommend-wrap .list .item .text-wrap .name {
+  font-size: 16px;
+  color: #fff;
+}
+.g-recommend .recommend-wrap .list .item .text-wrap .desc {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+}
+.g-ft {
+  width: 100%;
+  margin-top: 60px;
+  padding: 40px 0 60px;
+  border-top: 2px solid #dedede;
+  overflow: hidden;
+}
+.g-ft .ft-wrap {
+  width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.g-ft .ft-wrap .qrcode {
+  float: left;
+  margin-left: 180px;
+}
+.g-ft .ft-wrap .text {
+  float: left;
+  margin-left: 45px;
+}
+.g-ft .ft-wrap .text .row {
+  line-height: 2.2;
+  font-size: 12px;
+  color: #333;
+  text-align: left;
+}
+.g-ft .ft-wrap .text .row.beian-wrap {
+  margin-top: 10px;
+}
+.g-ft .ft-wrap .text .row.beian-wrap .beian {
+  display: inline-block;
+  vertical-align: middle;
+}
+.g-ft .ft-wrap .text .row.beian-wrap .txt {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  vertical-align: middle;
+}

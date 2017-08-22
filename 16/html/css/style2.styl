@@ -1,0 +1,65 @@
+@import './base.styl'
+@import './mixin.styl'
+.popover
+  position fixed
+  right 0
+  bottom 0
+  width 300px
+  height 200px
+  border-box()
+  border 1px solid #eee
+  .g-hd
+    position relative
+    width 100%
+    height 30px
+    line-height 30px
+    background url('../imgs/bg.png') center center no-repeat
+    background-size cover
+    overflow hidden
+    .logo-wrap
+      font-size 0
+      margin-left 10px
+      .img
+        display block
+        height 22px
+        width auto
+        margin-top 4px
+    .ctrl-wrap
+      position absolute
+      right 15px
+      top 4px
+      .close
+        display inline-block
+        width 14px
+        height 14px
+        background url('../imgs/close.png') center center no-repeat
+        background-size cover
+        cursor pointer
+  .main
+    width 300px
+    height 135px
+    border-box()
+    padding 15px
+    .title
+      font-size 16px
+      color rgb(34,34,34)
+      text-align center
+      width 100%
+      no-wrap()
+    .info
+      margin-top 13px
+      font-size 14px
+      color #666
+      line-height 1.429
+  .share
+    border-top 1px solid #ccc
+    width 100%
+    height 35px
+    line-height 35px
+    border-box()
+    span
+      float right
+      font-size 14px
+      margin-right 15px
+      a
+        color rgb(0, 129, 220)

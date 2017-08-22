@@ -1,0 +1,403 @@
+@import './base.styl'
+@import './mixin.styl'
+body
+	background #fff
+.g-hd
+	width 100%
+	height 40px
+	line-height 40px
+	margin 0 auto
+	border-bottom 1px solid #ccc
+	ul
+		width $body-width
+		margin 0 auto
+		font-size 0
+		.list
+			display inline-block
+			width 100px
+			line-height 40px
+			text-align center
+			border-box()
+			&.isActive
+				border-bottom 2px solid $color
+				a
+					color $color
+			&:hover
+				border-bottom 2px solid $color
+				a
+					color $color
+			a
+				vertical-align middle
+				display inline-block
+				width 100%
+				height 14px
+				line-height 14px
+				// border-right 1px solid #adadad
+				font-size 14px
+				color #000
+				border-box()
+				font-weight 500
+				&:hover
+					color $color
+					text-decoration none
+			&:last-child
+				a
+					border-right none
+.g-logo-wrap
+	width $body-width
+	height 90px
+	margin 0 auto
+	.logo-img,.channel-logo
+		float left
+		height 100%
+		font-size 0
+		overflow hidden
+		margin-right 60px
+		.logo
+			display inline-block
+			vertical-align:middle
+		span
+			display inline-block
+			height 100%
+			vertical-align middle
+	.link-location
+		line-height 90px
+		font-size 15px
+.g-logo-text
+	width $body-width
+	margin 0 auto
+	font-size 0
+.g-bd
+	width $body-width
+	margin 30px auto 0
+	.main
+		float left
+		width 720px
+		border-box()
+		.hd
+			width 100%
+			border-box()
+			.img-text
+				.img-wrap
+					width 230px
+					float left
+					.img
+						display block
+						width 220px
+						height 220px
+						border-box()
+						padding 9px
+						border 1px solid #ccc
+						background #fff
+						box-shadow: 6px 6px 0px #ebebeb
+				.text-wrap
+					width 466px
+					float right
+					.title
+						margin-top 20px
+						h2
+							float left
+							font-size 24px
+							color #333
+							font-weight 500
+						.download
+							float right
+							display inline-block
+							font-size 14px
+							height 20px
+							line-height 20px
+							padding-left 24px
+							background url('../imgs/download.png') left center no-repeat
+							background-size 19px 20px
+							cursor pointer
+					.tags
+						margin-top 20px
+						font-size 14px
+						color #666
+						.type
+							display inline-block
+							.type-name
+								color #0081dc
+						.tag-wrap
+							display inline-block
+							margin-left 20px
+							.tag
+								position relative
+								display inline-block
+								margin-left 16px
+								height 20px
+								line-height 20px
+								border 1px solid #dfdfdf
+								border-left none
+								padding 0 8px 0 4px
+								background #fff
+								&::after
+									position absolute
+									z-index -1
+									left -7px
+									top 2px
+									transform:rotate(45deg)
+									-ms-transform:rotate(45deg) 	/* IE 9 */
+									-moz-transform:rotate(45deg) 	/* Firefox */
+									-webkit-transform:rotate(45deg) /* Safari 和 Chrome */
+									-o-transform:rotate(45deg)
+									content ''
+									width 14px
+									height 14px
+									border 1px solid #dfdfdf
+					.update-time
+						margin-top 20px
+						font-size 14px
+						color #666
+					.share
+						margin-top 20px
+						overflow hidden
+						.share-icon
+							vertical-align middle
+							display inline-block
+							width 70px
+							height 21px
+							line-height 21px
+							font-size 14px
+							color #666
+							padding-left 30px
+							border-box()
+							background url('../imgs/share-icon.png') no-repeat
+							background-size 22px 21px
+						.share-wrap
+							vertical-align middle
+							display inline-block
+							width 150px
+							overflow hidden
+					.play-wrap
+						margin-top 20px
+						.play-pause
+							float left
+							display inline-block
+							width 38px
+							height 38px
+							background url('../imgs/playBtn.png') center center no-repeat
+							background-size 38px auto
+							cursor pointer
+							&.paused
+								background url('../imgs/pausedBtn.png') center center no-repeat
+								background-size 38px auto
+						.progress
+							position relative
+							float left
+							margin-left 20px
+							display inline-block
+							width 400px
+							.name
+								position absolute
+								z-index 2
+								top 0
+								left 0
+								font-size 14px
+								color #666
+							.time-wrap
+								position absolute
+								z-index 2
+								right 0
+								top 0
+								font-size 14px
+								color #666
+			.desc
+				margin-top 40px
+				font-size 14px
+				color #666
+				line-height 2.143
+		.album-list
+			width 720px
+			margin-top 45px
+			border-box()
+			.list-hd
+				padding-bottom 20px
+				border-bottom 1px solid #ddd
+				.title
+					float left
+					font-size 18px
+					color #333
+					font-weight 500
+				.sort
+					float right
+					padding-right 8px
+					background url('../imgs/sort.png') right center no-repeat
+					font-size 14px
+					color #666
+					cursor pointer
+			.list-wrap
+				width 100%
+				border-box()
+				.lists
+					width 720px
+					border-box()
+					.list
+						width 100%
+						height 45px
+						line-height 45px
+						border-bottom 1px solid #ddd
+						padding-left 15px
+						border-box()
+						font-size 14px
+						color #666
+						.left
+							float left
+							cursor pointer
+							.playBtn
+								display inline-block
+								width 10px
+								height 13px
+								background url('../imgs/play-icon.png') center center no-repeat
+								background-size 10px 13px
+							&.isPlay
+								.title
+									color #fb8437
+								.playBtn
+									background url('../imgs/pause-icon.png') center center no-repeat
+									background-size 10px 12px
+						.time
+							float right
+	.mainc
+		width 240px
+		float right
+		background #f5f5f5
+		.dj-info
+			width 100%
+			border-box()
+			padding 28px 20px
+			border-bottom 1px solid #ddd
+			.title
+				font-size 16px
+				color #333
+			.img-text
+				margin-top 20px
+				.avatar
+					float left
+					position relative
+					width 86px
+					height 86px
+					border-radius 50%
+					font-size 0
+					.img
+						height 100%
+						width 100%
+						border-radius 50%
+					.v
+						position absolute
+						right 0
+						bottom 0
+						display inline-block
+						width 24px
+						height 24px
+						background url('../imgs/v.png') center center no-repeat
+						background-size cover
+				.text
+					float left
+					margin-left 20px
+					.name
+						margin-top 10px
+						font-size 18px
+						color #333
+					.follow
+						display inline-block
+						margin-top 18px
+						width 76px
+						height 24px
+						line-height 24px
+						text-align center
+						border none
+						border-radius 24px
+						background #1ba2ff
+						font-size 12px
+						color #fff
+			.desc
+				margin-top 18px
+				font-size 14px
+				color #999
+				line-height 1.286
+		.dj-album
+			width 240px
+			border-box()
+			.title
+				width 100%
+				border-box()
+				padding 28px 20px 0
+				font-size 16px
+				color #333
+			.album-list
+				margin-top 20px
+				width 240px
+				border-box()
+				padding 0 50px
+				.list
+					margin-bottom 30px
+					overflow hidden
+					.album-cover
+						width 140px
+						height 140px
+						overflow hidden
+						font-size 0
+						.img
+							width 100%
+							height 100%
+					.desc
+						margin-top 14px
+						font-size 15px
+						color #666
+						line-height 1.5
+.g-pages
+	width 500px
+	margin 40px auto 30px
+	border-box()
+	overflow hidden
+	text-align center
+	font-size 0
+	.page-info
+		font-size 12px
+		color #000
+		margin-right 20px
+	button
+		display inline-block
+		width 64px
+		height 24px
+		line-height 24px
+		text-align center
+		border-box()
+		border 1px solid #bcbcbc
+		background #fff
+		margin-right 10px
+		a
+			color #999
+.g-ft
+	width 100%
+	margin-top 60px
+	padding 40px 0 60px
+	border-top 2px solid #dedede
+	overflow hidden
+	.ft-wrap
+		width $body-width
+		margin 0 auto
+		text-align center
+		.qrcode
+			float left
+			margin-left 180px
+		.text
+			float left
+			margin-left 45px
+			.row
+				line-height 2.2
+				font-size 12px
+				color #333
+				text-align left
+				&.beian-wrap
+					margin-top 10px
+					.beian
+						display inline-block
+						vertical-align middle
+					.txt
+						display inline-block
+						height 20px
+						line-height 20px
+						font-size 14px
+						vertical-align middle

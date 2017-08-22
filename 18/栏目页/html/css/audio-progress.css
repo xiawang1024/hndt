@@ -1,0 +1,38 @@
+.audio-setbacks{
+	height: 4px;
+	border-radius: 3px;
+	background-color: #eee;
+}
+.audio-setbacks{
+	position: relative;
+	top: 50%;
+  margin-top: 26px;
+}
+.audio-cache-setbacks,
+.audio-this-setbacks{
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	border-radius: 3px;
+}
+.audio-cache-setbacks{
+	background-color: #535353;
+	z-index: 1;
+	cursor: pointer;
+}
+.audio-this-setbacks{
+	background-color: #fb8437;
+	z-index: 2;
+}
+.audio-backs-btn{
+	position: absolute;
+	width: 6px;
+	height: 21px;
+	margin-top: -10px;
+	top: 50%;
+	right: -2px;
+	background-color: #fb8437;
+	border-radius: 4px;
+	cursor: pointer;
+}
